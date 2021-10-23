@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Checkbox, Form, Input, Typography } from 'antd'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 
 export const Login = () => {
@@ -32,9 +32,7 @@ export const Login = () => {
           <Form.Item name='remember' valuePropName='checked' noStyle>
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
-          <a className='login-form-forgot' href=''>
-            Forgot password
-          </a>
+          <Typography.Link>Forgot password</Typography.Link>
         </Form.Item>
         <Form.Item>
           <Button
@@ -44,7 +42,7 @@ export const Login = () => {
           >
             Log in
           </Button>
-          Or <a href=''>register now!</a>
+          Or <Typography.Link href=''>register now!</Typography.Link>
         </Form.Item>
       </Form>
     </>

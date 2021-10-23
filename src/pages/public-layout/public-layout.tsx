@@ -1,8 +1,8 @@
 import { Drawer, PageHeader } from 'antd'
-import { ReactNode, useState } from 'react'
+import { ReactNode } from 'react'
 import styles from './public-layout.module.scss'
 import { MenuOutlined } from '@ant-design/icons'
-import { useVisible } from '../../hooks/use-viisible'
+import { useVisible } from 'src/hooks/use-viisible'
 
 interface Props {
   children: ReactNode
