@@ -1,4 +1,4 @@
-name: Deploy
+name: CI
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  prepare:
+  Prepare:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,8 +24,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-  build:
-    needs: prepare
+  Build:
+    needs: Prepare
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -39,8 +39,8 @@ jobs:
           path: build
           key: build-${{ github.run_id }}
 
-  deploy:
-    needs: build
+  Deploy:
+    needs: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
