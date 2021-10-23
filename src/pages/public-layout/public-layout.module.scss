@@ -1,0 +1,13 @@
+.wrapper {
+  padding: 24px;
+}
+
+.drawer :global(.ant-drawer-wrapper-body) {
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+
+  :global(.ant-drawer-header) {
+    border: none;
+  }
+}
+
