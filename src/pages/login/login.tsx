@@ -1,9 +1,11 @@
-import { Button, Checkbox, Form, Input, Typography } from 'antd'
-import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { Button, Form, Input, Typography } from 'antd'
+import { Link } from 'react-router-dom'
+import { PATH } from '../../config'
 
 export const Login = () => {
   return (
     <>
+      <Typography.Title level={2}>Вход</Typography.Title>
       <Form
         name='normal_login'
         className='login-form'
@@ -13,36 +15,32 @@ export const Login = () => {
           name='username'
           rules={[{ required: true, message: 'Please input your Username!' }]}
         >
-          <Input
-            prefix={<UserOutlined className='site-form-item-icon' />}
-            placeholder='Username'
-          />
+          <Input placeholder='Почта' size='large' />
         </Form.Item>
         <Form.Item
           name='password'
           rules={[{ required: true, message: 'Please input your Password!' }]}
         >
-          <Input
-            prefix={<LockOutlined className='site-form-item-icon' />}
-            type='password'
-            placeholder='Password'
-          />
+          <Input type='password' placeholder='Пароль' size='large' />
         </Form.Item>
         <Form.Item>
-          <Form.Item name='remember' valuePropName='checked' noStyle>
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-          <Typography.Link>Forgot password</Typography.Link>
-        </Form.Item>
-        <Form.Item>
-          <Button
-            type='primary'
-            htmlType='submit'
-            className='login-form-button'
-          >
-            Log in
+          <Button type='primary' block size='large'>
+            Войти
           </Button>
-          Or <Typography.Link href=''>register now!</Typography.Link>
+        </Form.Item>
+        <Form.Item>
+          <Link to={PATH.SIGNUP}>
+            <Button block size='large'>
+              Зарегистрироваться
+            </Button>
+          </Link>
+        </Form.Item>
+        <Form.Item>
+          <Link to={PATH.RESTORE}>
+            <Button type='link' block>
+              Забыли пароль?
+            </Button>
+          </Link>
         </Form.Item>
       </Form>
     </>

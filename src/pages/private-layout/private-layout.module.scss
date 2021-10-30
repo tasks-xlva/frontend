@@ -1,0 +1,9 @@
+.header {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content {
+  display: grid;
+  grid-gap: 24px;
+  padding: 24px;
+}

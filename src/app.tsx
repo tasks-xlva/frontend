@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Button } from 'antd'
-import 'antd/dist/antd.css'
 import { Redirect, Route, Switch, Link } from 'react-router-dom'
-import { AuthorizedLayout } from './pages/authorized-layout/authorized-layout'
+import { PrivateLayout } from './pages/private-layout/private-layout'
 import { Login } from './pages/login/login'
 import { PublicLayout } from './pages/public-layout/public-layout'
 import { PATH } from './config'
+import { Signup } from './pages/signup/signup'
+import { Restore } from './pages/restore/restore'
 
 export const App = () => {
   const [a, setA] = useState(false)
@@ -16,7 +17,7 @@ export const App = () => {
         {a ? 'authorized' : 'gay'}
       </Button>
       {a ? (
-        <AuthorizedLayout>
+        <PrivateLayout>
           <Switch>
             <Route path='/a'>
               <Link to='/b'>
@@ -30,19 +31,20 @@ export const App = () => {
             </Route>
             <Redirect to='/a' />
           </Switch>
-        </AuthorizedLayout>
+        </PrivateLayout>
       ) : (
         <PublicLayout>
           <Switch>
-            <Route path='/log'>
+            <Route path={PATH.LOGIN}>
               <Login />
             </Route>
-            <Route path='/h'>
-              <Link to={PATH.LOGIN}>
-                <Button type='primary'>ChlenChlen2</Button>
-              </Link>
+            <Route path={PATH.SIGNUP}>
+              <Signup />
             </Route>
-            <Redirect to='/log' />
+            <Route path={PATH.RESTORE}>
+              <Restore />
+            </Route>
+            <Redirect to={PATH.LOGIN} />
           </Switch>
         </PublicLayout>
       )}
