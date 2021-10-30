@@ -1,3 +1,9 @@
-a {
-  text-decoration: underline !important;
+.ant-typography a,
+a.ant-typography,
+.ant-btn-link span {
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
