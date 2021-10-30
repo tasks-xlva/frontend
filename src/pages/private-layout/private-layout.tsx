@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-import { PageHeader } from 'antd'
+import { ReactNode, useState } from 'react'
+import { Drawer, PageHeader } from 'antd'
 import styles from './private-layout.module.scss'
 import { Main } from './main/main'
 import { Aside } from './aside/aside'
@@ -10,15 +10,32 @@ interface Props {
 }
 
 export const PrivateLayout = (props: Props) => {
+  const [visible, setVisible] = useState(false)
+  const showDrawer = () => {
+    setVisible(true)
+  }
+  const onClose = () => {
+    setVisible(false)
+  }
   const { children } = props
   return (
     <>
       <PageHeader
         className={styles.header}
         backIcon={<MenuOutlined />}
-        onBack={() => null}
+        onBack={showDrawer}
         title='Tasks'
       />
+      <Drawer
+        placement='left'
+        title='Drawer'
+        onClose={onClose}
+        visible={visible}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
       <div>{children}</div>
     </>
   )
