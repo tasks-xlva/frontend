@@ -1,6 +1,6 @@
 import { PageHeader } from 'antd'
 import { ReactNode } from 'react'
-import styles from './public-layout.module.scss'
+import styles from 'shared/ui/layouts/public-layout/public-layout.module.scss'
 
 interface Props {
   children: ReactNode

@@ -1,8 +1,8 @@
 import { ReactNode, useState } from 'react'
 import { Drawer, PageHeader } from 'antd'
-import styles from './private-layout.module.scss'
-import { Main } from './main/main'
-import { Aside } from './aside/aside'
+import styles from 'shared/ui/layouts/private-layout/private-layout.module.scss'
+import { Main } from 'shared/ui/layouts/private-layout/main/main'
+import { Aside } from 'shared/ui/layouts/private-layout/aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
 
 interface Props {
