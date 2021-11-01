@@ -1,5 +1,7 @@
 # Tasks / [tasks.xlvn.ru](https://tasks.xlvn.ru)
 
+## [Figma](https://www.figma.com/file/ETlMMf10uGwHRDU4874HkJ/Tasks?node-id=0%3A1)
+
 ## Available Scripts
 
 In the project directory, you can run:
