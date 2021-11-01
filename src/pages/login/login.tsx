@@ -1,6 +1,6 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
-import { PATH } from '../../config'
+import { PUBLIC_PATH } from 'shared/config'
 
 export const Login = () => {
   return (
@@ -29,14 +29,14 @@ export const Login = () => {
           </Button>
         </Form.Item>
         <Form.Item>
-          <Link to={PATH.SIGNUP}>
+          <Link to={PUBLIC_PATH.SIGNUP}>
             <Button block size='large'>
               Зарегистрироваться
             </Button>
           </Link>
         </Form.Item>
         <Form.Item>
-          <Link to={PATH.RESTORE}>
+          <Link to={PUBLIC_PATH.RESTORE}>
             <Button type='link' block>
               Забыли пароль?
             </Button>

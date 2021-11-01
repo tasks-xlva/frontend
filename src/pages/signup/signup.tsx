@@ -1,7 +1,7 @@
 import { Button, Form, Input, Typography } from 'antd'
 import styles from './signup.module.scss'
 import { Link } from 'react-router-dom'
-import { PATH } from '../../config'
+import { PUBLIC_PATH } from 'shared/config'
 
 export const Signup = () => {
   return (
@@ -51,8 +51,7 @@ export const Signup = () => {
         </Form.Item>
         <Form.Item>
           <Typography.Paragraph className={styles.signupText}>
-            Уже есть аккаунт?
-            <Link to={PATH.LOGIN}> Войти?</Link>
+            Уже есть аккаунт? <Link to={PUBLIC_PATH.LOGIN}>Войти?</Link>
           </Typography.Paragraph>
         </Form.Item>
       </Form>
