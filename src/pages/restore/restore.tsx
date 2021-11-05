@@ -1,6 +1,6 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
-import { PATH } from '../../config'
+import { PUBLIC_PATH } from 'shared/config'
 
 export const Restore = () => {
   return (
@@ -21,7 +21,7 @@ export const Restore = () => {
           </Link>
         </Form.Item>
         <Form.Item>
-          <Link to={PATH.LOGIN}>
+          <Link to={PUBLIC_PATH.LOGIN}>
             <Button block size='large'>
               Назад
             </Button>
