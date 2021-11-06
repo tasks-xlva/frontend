@@ -36,7 +36,9 @@ export const PrivateLayout = (props: Props) => {
       >
         <p>Мои задания</p>
         <p>Предметы</p>
-        <p>Группы</p>
+        <Link to={PRIVATE_PATH.GROUPS}>
+          <p>Группы</p>
+        </Link>
         <Link to={PRIVATE_PATH.SETTINGS}>
           <p>Настройки</p>
         </Link>
