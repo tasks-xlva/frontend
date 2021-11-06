@@ -4,6 +4,8 @@ import styles from 'shared/ui/layouts/private-layout/private-layout.module.scss'
 import { Main } from 'shared/ui/layouts/private-layout/main/main'
 import { Aside } from 'shared/ui/layouts/private-layout/aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
+import { Link } from 'react-router-dom'
+import { PRIVATE_PATH } from '../../../config'
 
 interface Props {
   children: ReactNode
@@ -28,15 +30,19 @@ export const PrivateLayout = (props: Props) => {
       />
       <Drawer
         placement='left'
-        title='Drawer'
+        title='Имя Фамилия'
         onClose={onClose}
         visible={visible}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>Мои задания</p>
+        <p>Предметы</p>
+        <p>Группы</p>
+        <Link to={PRIVATE_PATH.SETTINGS}>
+          <p>Настройки</p>
+        </Link>
+        <p>Выход</p>
       </Drawer>
-      <div>{children}</div>
+      <main className={styles.content}>{children}</main>
     </>
   )
 }

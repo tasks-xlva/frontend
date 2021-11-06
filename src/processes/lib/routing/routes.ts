@@ -1,8 +1,9 @@
 import { ComponentClass, FunctionComponent } from 'react'
-import { PUBLIC_PATH } from 'shared/config'
+import { PRIVATE_PATH, PUBLIC_PATH } from 'shared/config'
 import { Login } from 'pages/login/login'
 import { Signup } from 'pages/signup/signup'
 import { Restore } from 'pages/restore/restore'
+import { Settings } from 'pages/settings/settings'
 
 export type Routes = {
   path?: string
@@ -10,7 +11,9 @@ export type Routes = {
   default?: boolean
 }[]
 
-export const privateRoutes: Routes = []
+export const privateRoutes: Routes = [
+  { path: PRIVATE_PATH.SETTINGS, component: Settings },
+]
 
 export const publicRoutes: Routes = [
   { path: PUBLIC_PATH.LOGIN, component: Login, default: true },
