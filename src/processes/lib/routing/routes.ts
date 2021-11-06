@@ -6,6 +6,8 @@ import { Restore } from 'pages/restore/restore'
 import { Settings } from 'pages/settings/settings'
 import { Groups } from 'pages/groups/groups'
 import { Group } from 'pages/group/group'
+import { Subjects } from 'pages/subjects/subjects'
+import { Subject } from 'pages/subject/subject'
 
 export type Routes = {
   path?: string
@@ -17,6 +19,8 @@ export const privateRoutes: Routes = [
   { path: PRIVATE_PATH.SETTINGS, component: Settings },
   { path: PRIVATE_PATH.GROUPS, component: Groups },
   { path: PRIVATE_PATH.GROUP, component: Group },
+  { path: PRIVATE_PATH.SUBJECTS, component: Subjects },
+  { path: PRIVATE_PATH.SUBJECT, component: Subject },
 ]
 
 export const publicRoutes: Routes = [
