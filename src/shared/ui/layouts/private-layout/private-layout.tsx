@@ -35,18 +35,20 @@ export const PrivateLayout = (props: Props) => {
         visible={visible}
       >
         <Link to='' onClick={onClose}>
-          <Typography.Text>Мои задания</Typography.Text>
+          <p>Мои задания</p>
         </Link>
         <Link to={PRIVATE_PATH.SUBJECTS} onClick={onClose}>
-          <Typography.Text>Предметы</Typography.Text>
+          <p>Предметы</p>
         </Link>
         <Link to={PRIVATE_PATH.GROUPS} onClick={onClose}>
-          <Typography.Text>Группы</Typography.Text>
+          <p>Группы</p>
         </Link>
         <Link to={PRIVATE_PATH.SETTINGS} onClick={onClose}>
-          <Typography.Text>Настройки</Typography.Text>
+          <p>Настройки</p>
         </Link>
-        <Typography.Text type='danger'>Выход</Typography.Text>
+        <p>
+          <Typography.Text type='danger'>Выход</Typography.Text>
+        </p>
       </Drawer>
       <main className={styles.content}>{children}</main>
     </>

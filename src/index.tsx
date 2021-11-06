@@ -8,8 +8,10 @@ import { ConfigProvider } from 'antd'
 ConfigProvider.config({ theme: { primaryColor: '#272727' } })
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <ConfigProvider componentSize='large'>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ConfigProvider>,
   document.getElementById('root'),
 )
