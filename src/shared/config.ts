@@ -8,4 +8,5 @@ export enum PRIVATE_PATH {
   SETTINGS = '/settings',
   GROUPS = '/groups',
   SUBJECTS = '/subjects',
+  GROUP = '/groups/:groupId',
 }

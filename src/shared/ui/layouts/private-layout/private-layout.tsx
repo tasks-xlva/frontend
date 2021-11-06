@@ -1,11 +1,11 @@
 import { ReactNode, useState } from 'react'
-import { Drawer, PageHeader } from 'antd'
+import { Drawer, PageHeader, Typography } from 'antd'
 import styles from 'shared/ui/layouts/private-layout/private-layout.module.scss'
 import { Main } from 'shared/ui/layouts/private-layout/main/main'
 import { Aside } from 'shared/ui/layouts/private-layout/aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
-import { PRIVATE_PATH } from '../../../config'
+import { PRIVATE_PATH } from 'shared/config'
 
 interface Props {
   children: ReactNode
@@ -34,15 +34,19 @@ export const PrivateLayout = (props: Props) => {
         onClose={onClose}
         visible={visible}
       >
-        <p>Мои задания</p>
-        <p>Предметы</p>
-        <Link to={PRIVATE_PATH.GROUPS}>
-          <p>Группы</p>
+        <Link to='' onClick={onClose}>
+          <Typography.Text>Мои задания</Typography.Text>
         </Link>
-        <Link to={PRIVATE_PATH.SETTINGS}>
-          <p>Настройки</p>
+        <Link to={PRIVATE_PATH.SUBJECTS} onClick={onClose}>
+          <Typography.Text>Предметы</Typography.Text>
         </Link>
-        <p>Выход</p>
+        <Link to={PRIVATE_PATH.GROUPS} onClick={onClose}>
+          <Typography.Text>Группы</Typography.Text>
+        </Link>
+        <Link to={PRIVATE_PATH.SETTINGS} onClick={onClose}>
+          <Typography.Text>Настройки</Typography.Text>
+        </Link>
+        <Typography.Text type='danger'>Выход</Typography.Text>
       </Drawer>
       <main className={styles.content}>{children}</main>
     </>

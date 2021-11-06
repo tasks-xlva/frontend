@@ -1,4 +1,4 @@
-import { Button, Form, Input, Typography } from 'antd'
+import { Button, Typography } from 'antd'
 import { generatePath } from 'react-router-dom'
 import { LinkCard } from 'shared/ui/components/LinkCard/LinkCard'
 import { PRIVATE_PATH } from '../../shared/config'
@@ -9,7 +9,7 @@ export const Groups = () => {
       <Typography.Title level={2}>Группы</Typography.Title>
       <LinkCard
         href={generatePath(PRIVATE_PATH.GROUP, {
-          groupId: 1,
+          groupId: 'K33401',
         })}
         style={{ marginTop: 16 }}
       >
@@ -17,7 +17,7 @@ export const Groups = () => {
       </LinkCard>
       <LinkCard
         href={generatePath(PRIVATE_PATH.GROUP, {
-          groupId: 2,
+          groupId: 'K33402',
         })}
         style={{ marginTop: 16 }}
       >
