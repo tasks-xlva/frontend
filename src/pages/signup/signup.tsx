@@ -12,40 +12,40 @@ export const Signup = () => {
           name='name'
           rules={[{ required: true, message: 'Введите имя' }]}
         >
-          <Input placeholder='Имя' size='large' />
+          <Input placeholder='Имя' />
         </Form.Item>
         <Form.Item
           name='surname'
           rules={[{ required: true, message: 'Введите фамилию' }]}
         >
-          <Input placeholder='Фамилия' size='large' />
+          <Input placeholder='Фамилия' />
         </Form.Item>
         <Form.Item
           name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
-          <Input placeholder='Почта' size='large' />
+          <Input placeholder='Почта' />
         </Form.Item>
         <Form.Item
           name='login'
           rules={[{ required: false, message: 'Введите логин' }]}
         >
-          <Input placeholder='Логин' size='large' />
+          <Input placeholder='Логин' />
         </Form.Item>
         <Form.Item
           name='password'
           rules={[{ required: true, message: 'Введите пароль' }]}
         >
-          <Input type='password' placeholder='Пароль' size='large' />
+          <Input type='password' placeholder='Пароль' />
         </Form.Item>
         <Form.Item
           name='repeat-password'
           rules={[{ required: true, message: 'Введите пароль' }]}
         >
-          <Input type='password' placeholder='Повторите пароль' size='large' />
+          <Input type='password' placeholder='Повторите пароль' />
         </Form.Item>
         <Form.Item>
-          <Button type='primary' block size='large'>
+          <Button type='primary' block>
             Зарегистрироваться
           </Button>
         </Form.Item>

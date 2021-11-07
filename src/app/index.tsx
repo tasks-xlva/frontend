@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
-import { Button } from 'antd'
+import React from 'react'
 import './styles/index.scss'
 import { PrivateLayout } from 'shared/ui/layouts/private-layout/private-layout'
 import { PublicLayout } from 'shared/ui/layouts/public-layout/public-layout'
 import { PublicPages, PrivatePages } from 'processes/lib/routing'
+import { useAuthorization } from 'processes/lib/authorization'
 
 export const App = () => {
-  const [a, setA] = useState(false)
+  const { isAuthorized } = useAuthorization()
 
   return (
     <>
-      <Button block onClick={() => setA(!a)}>
-        {a ? 'authorized' : 'gay'}
-      </Button>
-      {a ? (
+      {isAuthorized ? (
         <PrivateLayout>
           <PrivatePages />
         </PrivateLayout>
