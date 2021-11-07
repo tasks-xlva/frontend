@@ -11,20 +11,18 @@ export const Restore = () => {
           name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
-          <Input type='email' placeholder='Почта' size='large' />
+          <Input type='email' placeholder='Почта' />
         </Form.Item>
         <Form.Item>
           <Link to=''>
-            <Button type='primary' block size='large'>
+            <Button type='primary' block>
               Сбросить
             </Button>
           </Link>
         </Form.Item>
         <Form.Item>
           <Link to={PUBLIC_PATH.LOGIN}>
-            <Button block size='large'>
-              Назад
-            </Button>
+            <Button block>Назад</Button>
           </Link>
         </Form.Item>
       </Form>

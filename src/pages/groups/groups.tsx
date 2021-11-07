@@ -23,9 +23,7 @@ export const Groups = () => {
       >
         K33402
       </LinkCard>
-      <Button block size='large'>
-        Создать группу
-      </Button>
+      <Button block>Создать группу</Button>
     </>
   )
 }
