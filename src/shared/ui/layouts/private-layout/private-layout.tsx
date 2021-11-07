@@ -6,12 +6,14 @@ import { Aside } from 'shared/ui/layouts/private-layout/aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { PRIVATE_PATH } from 'shared/config'
+import { useLogout } from './lib/use-logout'
 
 interface Props {
   children: ReactNode
 }
 
 export const PrivateLayout = (props: Props) => {
+  const { handleLogout } = useLogout()
   const [visible, setVisible] = useState(false)
   const showDrawer = () => {
     setVisible(true)
@@ -46,7 +48,7 @@ export const PrivateLayout = (props: Props) => {
         <Link to={PRIVATE_PATH.SETTINGS} onClick={onClose}>
           <p>Настройки</p>
         </Link>
-        <p>
+        <p onClick={handleLogout}>
           <Typography.Text type='danger'>Выход</Typography.Text>
         </p>
       </Drawer>
