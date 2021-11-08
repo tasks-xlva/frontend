@@ -1,7 +1,7 @@
 import { Typography } from 'antd'
-import { LinkCard } from '../../shared/ui/components/link-card/link-card'
+import { LinkCard } from 'shared/ui/link-card/link-card'
 import { generatePath } from 'react-router-dom'
-import { PRIVATE_PATH } from '../../shared/config'
+import { PRIVATE_PATH } from 'shared/config'
 
 export const Tasks = () => {
   return (

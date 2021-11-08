@@ -1,4 +1,4 @@
-import { Button, Modal, Typography } from 'antd'
+import { Modal } from 'shared/ui'
 
 interface Props {
   id: number | null
@@ -8,17 +8,7 @@ interface Props {
 export const StudentModal = ({ id, onClose }: Props) => {
   return (
     <>
-      <Modal
-        visible={Boolean(id)}
-        onCancel={onClose}
-        footer={[
-          <Button block type='primary' key='submit'>
-            Сохранить
-          </Button>,
-        ]}
-      >
-        <Typography.Title>{id}</Typography.Title>
-      </Modal>
+      <Modal title={id} visible={Boolean(id)} onCancel={onClose} />
     </>
   )
 }
