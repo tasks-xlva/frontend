@@ -1,5 +1,6 @@
 import { List, Typography } from 'antd'
 import { Dispatch } from 'react'
+import { Grid } from 'shared/ui'
 
 interface Props {
   onUserClick?: Dispatch<number>
@@ -20,7 +21,7 @@ const data = [
 
 export const StudentsList = ({ onUserClick }: Props) => {
   return (
-    <>
+    <Grid>
       <Typography.Title level={3}>Студенты</Typography.Title>
       <List
         dataSource={data}
@@ -35,6 +36,6 @@ export const StudentsList = ({ onUserClick }: Props) => {
           </List.Item>
         )}
       />
-    </>
+    </Grid>
   )
 }

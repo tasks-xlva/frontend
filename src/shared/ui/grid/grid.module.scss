@@ -1,0 +1,8 @@
+.grid {
+  display: grid;
+  grid-gap: 24px;
+
+  > *:global(.ant-typography) {
+    margin: 0;
+  }
+}

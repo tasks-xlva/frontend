@@ -1,11 +1,11 @@
 import { Typography } from 'antd'
 import { generatePath } from 'react-router-dom'
-import { LinkCard } from 'shared/ui'
+import { Grid, LinkCard } from 'shared/ui'
 import { PRIVATE_PATH } from 'shared/config'
 
 export const Subjects = () => {
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>Предметы</Typography.Title>
       <LinkCard
         href={generatePath(PRIVATE_PATH.SUBJECT, {
@@ -21,6 +21,6 @@ export const Subjects = () => {
       >
         Front-end
       </LinkCard>
-    </>
+    </Grid>
   )
 }

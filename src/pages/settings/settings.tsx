@@ -1,9 +1,10 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
+import { Grid } from 'shared/ui'
 
 export const Settings = () => {
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>Настройки</Typography.Title>
       <Form>
         <Form.Item name='Name' rules={[{ required: false }]}>
@@ -42,6 +43,6 @@ export const Settings = () => {
           </Link>
         </Form.Item>
       </Form>
-    </>
+    </Grid>
   )
 }

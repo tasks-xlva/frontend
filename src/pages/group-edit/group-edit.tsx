@@ -2,6 +2,7 @@ import { Form, Input, Typography } from 'antd'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { StudentsList, StudentModal } from 'entities/ui'
+import { Grid } from 'shared/ui'
 
 export const GroupEdit = () => {
   let { groupId } = useParams<{ groupId: string }>()
@@ -9,7 +10,7 @@ export const GroupEdit = () => {
   const [id, setId] = useState<number | null>(null)
 
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>{groupId}</Typography.Title>
       <Form>
         <Form.Item label='Название'>
@@ -18,6 +19,6 @@ export const GroupEdit = () => {
       </Form>
       <StudentsList onUserClick={setId} />
       <StudentModal id={id} onClose={() => setId(null)} />
-    </>
+    </Grid>
   )
 }

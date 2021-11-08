@@ -6,17 +6,19 @@ import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
 import { StudentsList } from 'entities/ui/students-list/students-list'
 import { PRIVATE_PATH } from 'shared/config'
 import { PrivateLayout } from 'features/ui/private-layout/private-layout'
+import { Grid } from 'shared/ui'
 
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()
 
   return (
-    <>
+    <Grid>
       <div className={styles.header}>
         <Typography.Title level={2}>{groupId}</Typography.Title>
-        <Button type='primary' icon={<ShareAltOutlined />} />
+        <Button type='primary' size='middle' icon={<ShareAltOutlined />} />
         <Button
           type='primary'
+          size='middle'
           icon={<EditOutlined />}
           href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId: groupId })}
         />
@@ -29,6 +31,6 @@ export const Group = () => {
       <PrivateLayout.Aside>
         <StudentsList />
       </PrivateLayout.Aside>
-    </>
+    </Grid>
   )
 }
