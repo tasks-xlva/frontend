@@ -10,7 +10,7 @@ import { Subjects } from 'pages/subjects/subjects'
 import { Subject } from 'pages/subject/subject'
 import { Tasks } from 'pages/tasks/tasks'
 import { Task } from 'pages/task/task'
-import { GroupEdit } from '../../../pages/group-edit/group-edit'
+import { GroupEdit } from 'pages/group-edit/group-edit'
 
 export type Routes = {
   path?: string
