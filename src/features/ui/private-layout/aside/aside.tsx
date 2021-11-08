@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 interface Props {
   children: ReactNode
@@ -6,5 +7,14 @@ interface Props {
 
 export const Aside = (props: Props) => {
   const { children } = props
-  return <main>{children}</main>
+  const [aside, setAside] = useState<HTMLElement>()
+
+  useEffect(() => {
+    const aside = document.getElementById(`private-layout-aside`)
+    if (aside) {
+      setAside(aside)
+    }
+  }, [])
+
+  return <>{aside && createPortal(children, aside)}</>
 }

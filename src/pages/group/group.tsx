@@ -5,6 +5,7 @@ import styles from './group.module.scss'
 import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
 import { StudentsList } from 'entities/ui/students-list/students-list'
 import { PRIVATE_PATH } from 'shared/config'
+import { PrivateLayout } from 'features/ui/private-layout/private-layout'
 
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()
@@ -24,7 +25,10 @@ export const Group = () => {
       <LinkCard href=''>WEB</LinkCard>
       <LinkCard href=''>Frond-end</LinkCard>
       <Button block>Добавить предмет</Button>
-      <StudentsList />
+
+      <PrivateLayout.Aside>
+        <StudentsList />
+      </PrivateLayout.Aside>
     </>
   )
 }

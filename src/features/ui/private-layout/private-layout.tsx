@@ -1,7 +1,6 @@
 import { ReactNode, useState } from 'react'
 import { Drawer, PageHeader, Typography } from 'antd'
 import styles from './private-layout.module.scss'
-import { Main } from './main/main'
 import { Aside } from './aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
@@ -22,6 +21,7 @@ export const PrivateLayout = (props: Props) => {
     setVisible(false)
   }
   const { children } = props
+
   return (
     <>
       <PageHeader
@@ -52,10 +52,10 @@ export const PrivateLayout = (props: Props) => {
           <Typography.Text type='danger'>Выход</Typography.Text>
         </p>
       </Drawer>
-      <div className={styles.content}>{children}</div>
+      <main className={styles.content}>{children}</main>
+      <aside className={styles.aside} id='private-layout-aside' />
     </>
   )
 }
 
-PrivateLayout.Main = Main
 PrivateLayout.Aside = Aside
