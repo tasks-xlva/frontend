@@ -7,3 +7,10 @@ a.ant-typography,
     text-decoration: underline;
   }
 }
+
+.ant-card,
+.ant-btn,
+.ant-input,
+.ant-upload-list-item {
+  border-radius: 0 !important;
+}
