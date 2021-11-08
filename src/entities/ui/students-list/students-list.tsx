@@ -1,4 +1,4 @@
-import { Divider, List, Typography } from 'antd'
+import { List, Typography } from 'antd'
 import { Dispatch } from 'react'
 
 interface Props {
@@ -8,11 +8,13 @@ interface Props {
 const data = [
   {
     id: 111,
-    name: 'jkmv',
+    name: 'Товарищ Тимофей',
+    extra: 'Админ',
   },
   {
     id: 112,
-    name: 'jkmvddd',
+    name: 'Товарищ Матвей',
+    extra: '',
   },
 ]
 
@@ -20,12 +22,15 @@ export const StudentsList = ({ onUserClick }: Props) => {
   return (
     <>
       <Typography.Title level={3}>Студенты</Typography.Title>
-      <Divider orientation='left'>Админы</Divider>
       <List
-        bordered
         dataSource={data}
         renderItem={(item) => (
-          <List.Item onClick={() => onUserClick && onUserClick(item.id)}>
+          <List.Item
+            onClick={() => onUserClick && onUserClick(item.id)}
+            extra={
+              <Typography.Text type='warning'>{item.extra}</Typography.Text>
+            }
+          >
             <Typography.Text>{item.name}</Typography.Text>
           </List.Item>
         )}
