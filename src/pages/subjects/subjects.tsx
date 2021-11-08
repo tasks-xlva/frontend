@@ -1,6 +1,6 @@
 import { Typography } from 'antd'
 import { generatePath } from 'react-router-dom'
-import { LinkCard } from 'shared/ui/components/LinkCard/LinkCard'
+import { LinkCard } from 'shared/ui/components/link-card/link-card'
 import { PRIVATE_PATH } from 'shared/config'
 
 export const Subjects = () => {

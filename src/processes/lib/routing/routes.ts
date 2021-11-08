@@ -10,6 +10,7 @@ import { Subjects } from 'pages/subjects/subjects'
 import { Subject } from 'pages/subject/subject'
 import { Tasks } from 'pages/tasks/tasks'
 import { Task } from 'pages/task/task'
+import { GroupEdit } from '../../../pages/group-edit/group-edit'
 
 export type Routes = {
   path?: string
@@ -25,6 +26,7 @@ export const privateRoutes: Routes = [
   { path: PRIVATE_PATH.SUBJECT, component: Subject },
   { path: PRIVATE_PATH.TASKS, component: Tasks, default: true },
   { path: PRIVATE_PATH.TASK, component: Task },
+  { path: PRIVATE_PATH.GROUP_EDIT, component: GroupEdit },
 ]
 
 export const publicRoutes: Routes = [

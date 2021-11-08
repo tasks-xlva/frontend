@@ -1,6 +1,6 @@
 import { generatePath, useParams } from 'react-router-dom'
 import { Input, Typography } from 'antd'
-import { LinkCard } from 'shared/ui/components/LinkCard/LinkCard'
+import { LinkCard } from 'shared/ui/components/link-card/link-card'
 import { PRIVATE_PATH } from '../../shared/config'
 
 export const Subject = () => {

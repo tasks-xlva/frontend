@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { LinkCard } from '../../shared/ui/components/LinkCard/LinkCard'
+import { LinkCard } from '../../shared/ui/components/link-card/link-card'
 import { generatePath } from 'react-router-dom'
 import { PRIVATE_PATH } from '../../shared/config'
 
