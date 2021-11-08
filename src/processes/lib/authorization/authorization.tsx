@@ -7,11 +7,10 @@ interface Props {
 }
 
 export const Authorization = ({ children }: Props) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [isAuthorized, setIsAuthorized] = useState(false)
 
   useEffect(() => {
-    setIsLoading(true)
     isUserAuthorized()
       .then(setIsAuthorized)
       .finally(() => setIsLoading(false))

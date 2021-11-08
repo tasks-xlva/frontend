@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { obtainToken } from '../../../entities/api/token'
-import { useAuthorization } from '../../../processes/lib/authorization'
+import { obtainToken } from 'entities/api/token'
+import { updateTokens, useAuthorization } from 'processes/lib/authorization'
 import { notification } from 'antd'
 
 export const useLogin = () => {
@@ -9,7 +9,8 @@ export const useLogin = () => {
   const handleLogin = useCallback(
     async (params: Parameters<typeof obtainToken>['0']) => {
       try {
-        await obtainToken(params)
+        const { data } = await obtainToken(params)
+        updateTokens(data)
         setIsAuthorized(true)
       } catch (error) {
         console.error(error)
