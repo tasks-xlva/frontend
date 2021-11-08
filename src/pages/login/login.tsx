@@ -10,7 +10,7 @@ export const Login = () => {
       <Typography.Title level={2}>Вход</Typography.Title>
       <Form onFinish={handleLogin}>
         <Form.Item
-          name='username'
+          name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
           <Input placeholder='Почта' />
