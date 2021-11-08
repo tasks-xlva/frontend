@@ -1,8 +1,7 @@
 import { Form, Input, Typography } from 'antd'
 import { useParams } from 'react-router-dom'
-import { StudentsList } from 'entities/ui/students-list/students-list'
 import { useState } from 'react'
-import { StudentModal } from '../../entities/ui/student-modal/student-modal'
+import { StudentsList, StudentModal } from 'entities/ui'
 
 export const GroupEdit = () => {
   let { groupId } = useParams<{ groupId: string }>()

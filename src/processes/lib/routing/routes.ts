@@ -1,16 +1,18 @@
 import { ComponentClass, FunctionComponent } from 'react'
 import { PRIVATE_PATH, PUBLIC_PATH } from 'shared/config'
-import { Login } from 'pages/login/login'
-import { Signup } from 'pages/signup/signup'
-import { Restore } from 'pages/restore/restore'
-import { Settings } from 'pages/settings/settings'
-import { Groups } from 'pages/groups/groups'
-import { Group } from 'pages/group/group'
-import { Subjects } from 'pages/subjects/subjects'
-import { Subject } from 'pages/subject/subject'
-import { Tasks } from 'pages/tasks/tasks'
-import { Task } from 'pages/task/task'
-import { GroupEdit } from 'pages/group-edit/group-edit'
+import {
+  Login,
+  Signup,
+  Restore,
+  Settings,
+  Groups,
+  Group,
+  Subjects,
+  Subject,
+  Tasks,
+  Task,
+  GroupEdit,
+} from 'pages'
 
 export type Routes = {
   path?: string

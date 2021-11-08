@@ -3,8 +3,8 @@ import { generatePath, useParams } from 'react-router-dom'
 import { LinkCard } from 'shared/ui/link-card/link-card'
 import styles from './group.module.scss'
 import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
-import { StudentsList } from '../../entities/ui/students-list/students-list'
-import { PRIVATE_PATH } from '../../shared/config'
+import { StudentsList } from 'entities/ui/students-list/students-list'
+import { PRIVATE_PATH } from 'shared/config'
 
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()

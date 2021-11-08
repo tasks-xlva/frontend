@@ -6,9 +6,5 @@ interface Props {
 }
 
 export const StudentModal = ({ id, onClose }: Props) => {
-  return (
-    <>
-      <Modal title={id} visible={Boolean(id)} onCancel={onClose} />
-    </>
-  )
+  return <Modal title={id} visible={Boolean(id)} onCancel={onClose} />
 }

@@ -5,18 +5,18 @@ interface Props {
   onUserClick?: Dispatch<number>
 }
 
-export const StudentsList = ({ onUserClick }: Props) => {
-  const data = [
-    {
-      id: 111,
-      name: 'jkmv',
-    },
-    {
-      id: 112,
-      name: 'jkmvddd',
-    },
-  ]
+const data = [
+  {
+    id: 111,
+    name: 'jkmv',
+  },
+  {
+    id: 112,
+    name: 'jkmvddd',
+  },
+]
 
+export const StudentsList = ({ onUserClick }: Props) => {
   return (
     <>
       <Typography.Title level={3}>Студенты</Typography.Title>
