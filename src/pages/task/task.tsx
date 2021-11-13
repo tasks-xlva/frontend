@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
-import { Button, Form, Input, Typography, Upload } from 'antd'
-import { UploadOutlined } from '@ant-design/icons'
+import { DatePicker, Input, Typography, Upload } from 'antd'
 import { ComponentProps } from 'react'
+import { Grid } from 'shared/ui'
 
 const fileList: ComponentProps<typeof Upload>['defaultFileList'] = [
   {
@@ -23,18 +23,18 @@ export const Task = () => {
   let { taskId } = useParams<{ taskId: string }>()
 
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>{taskId}</Typography.Title>
       <Input.TextArea />
-      <Form>
+      <Form layout='vertical'>
         <Form.Item label='Дедлайн' name='deadline'>
-          <Input placeholder='Дедлайн' />
+          <DatePicker placeholder='Укажите дедлайн' />
         </Form.Item>
       </Form>
       <Typography.Title level={3}>Вложения</Typography.Title>
-      <Upload action='' listType='picture' defaultFileList={[...fileList]}>
-        <Button icon={<UploadOutlined />}>Upload</Button>
+      <Upload action='' listType='picture-card' defaultFileList={fileList}>
+        {'Загрузить'}
       </Upload>
-    </>
+    </Grid>
   )
 }
