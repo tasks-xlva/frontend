@@ -27,7 +27,7 @@ export const Task = () => {
       <Typography.Title level={2}>{taskId}</Typography.Title>
       <Input.TextArea />
       <Form>
-        <Form.Item name='deadline'>
+        <Form.Item label='Дедлайн' name='deadline'>
           <Input placeholder='Дедлайн' />
         </Form.Item>
       </Form>

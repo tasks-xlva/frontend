@@ -8,6 +8,7 @@ export const Restore = () => {
       <Typography.Title level={2}>Сброс пароля</Typography.Title>
       <Form>
         <Form.Item
+          label='Почта'
           name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
