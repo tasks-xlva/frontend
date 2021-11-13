@@ -7,7 +7,7 @@ export const Restore = () => {
   return (
     <Grid>
       <Typography.Title level={2}>Сброс пароля</Typography.Title>
-      <Form>
+      <Form layout='vertical'>
         <Form.Item
           label='Почта'
           name='email'

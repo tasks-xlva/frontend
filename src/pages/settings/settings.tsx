@@ -6,7 +6,7 @@ export const Settings = () => {
   return (
     <Grid>
       <Typography.Title level={2}>Настройки</Typography.Title>
-      <Form>
+      <Form layout='vertical'>
         <Form.Item label='Имя' name='Name' rules={[{ required: false }]}>
           <Input placeholder='Имя' />
         </Form.Item>
