@@ -12,7 +12,7 @@ export const GroupEdit = () => {
   return (
     <Grid>
       <Typography.Title level={2}>{groupId}</Typography.Title>
-      <Form>
+      <Form layout='vertical'>
         <Form.Item label='Название'>
           <Input placeholder='Название' />
         </Form.Item>

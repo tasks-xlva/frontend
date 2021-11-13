@@ -8,7 +8,7 @@ export const Signup = () => {
   return (
     <Grid>
       <Typography.Title level={2}>Регистрация</Typography.Title>
-      <Form>
+      <Form layout='vertical'>
         <Form.Item
           label='Имя'
           name='name'

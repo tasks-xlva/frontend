@@ -9,7 +9,7 @@ export const Login = () => {
   return (
     <Grid>
       <Typography.Title level={2}>Вход</Typography.Title>
-      <Form onFinish={handleLogin}>
+      <Form onFinish={handleLogin} layout='vertical'>
         <Form.Item
           label='Почта'
           name='email'
