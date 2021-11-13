@@ -1,13 +1,13 @@
 import { generatePath, useParams } from 'react-router-dom'
 import { Input, Typography } from 'antd'
-import { LinkCard } from 'shared/ui'
+import { Grid, LinkCard } from 'shared/ui'
 import { PRIVATE_PATH } from 'shared/config'
 
 export const Subject = () => {
   let { subjectId } = useParams<{ subjectId: string }>()
 
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>{subjectId}</Typography.Title>
       <Input.TextArea />
       <Typography.Title level={3}>Задания</Typography.Title>
@@ -19,6 +19,6 @@ export const Subject = () => {
         <Typography.Title level={4}>Лаба 2</Typography.Title>
         <Typography.Text type='secondary'>До 18.12.21</Typography.Text>
       </LinkCard>
-    </>
+    </Grid>
   )
 }

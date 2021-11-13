@@ -2,10 +2,11 @@ import { Button, Form, Input, Typography } from 'antd'
 import styles from './signup.module.scss'
 import { Link } from 'react-router-dom'
 import { PUBLIC_PATH } from 'shared/config'
+import { Grid } from 'shared/ui'
 
 export const Signup = () => {
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>Регистрация</Typography.Title>
       <Form>
         <Form.Item
@@ -55,6 +56,6 @@ export const Signup = () => {
           </Typography.Paragraph>
         </Form.Item>
       </Form>
-    </>
+    </Grid>
   )
 }

@@ -1,10 +1,11 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import { PUBLIC_PATH } from 'shared/config'
+import { Grid } from 'shared/ui'
 
 export const Restore = () => {
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>Сброс пароля</Typography.Title>
       <Form>
         <Form.Item
@@ -26,6 +27,6 @@ export const Restore = () => {
           </Link>
         </Form.Item>
       </Form>
-    </>
+    </Grid>
   )
 }
