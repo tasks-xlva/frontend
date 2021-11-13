@@ -11,12 +11,14 @@ export const Login = () => {
       <Typography.Title level={2}>Вход</Typography.Title>
       <Form onFinish={handleLogin}>
         <Form.Item
+          label='Почта'
           name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
           <Input placeholder='Почта' />
         </Form.Item>
         <Form.Item
+          label='Пароль'
           name='password'
           rules={[{ required: true, message: 'Введите пароль' }]}
         >

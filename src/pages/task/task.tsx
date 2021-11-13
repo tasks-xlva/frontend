@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom'
-import { DatePicker, Input, Typography, Upload } from 'antd'
+import { DatePicker, Input, Form, Typography, Upload } from 'antd'
 import { ComponentProps } from 'react'
 import { Grid } from 'shared/ui'
 
@@ -26,7 +26,11 @@ export const Task = () => {
     <Grid>
       <Typography.Title level={2}>{taskId}</Typography.Title>
       <Input.TextArea />
-      <DatePicker placeholder='Укажите дедлайн' />
+      <Form layout='vertical'>
+        <Form.Item label='Дедлайн' name='deadline'>
+          <DatePicker placeholder='Укажите дедлайн' />
+        </Form.Item>
+      </Form>
       <Typography.Title level={3}>Вложения</Typography.Title>
       <Upload action='' listType='picture-card' defaultFileList={fileList}>
         {'Загрузить'}

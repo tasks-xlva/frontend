@@ -7,13 +7,13 @@ export const Settings = () => {
     <Grid>
       <Typography.Title level={2}>Настройки</Typography.Title>
       <Form>
-        <Form.Item name='Name' rules={[{ required: false }]}>
+        <Form.Item label='Имя' name='Name' rules={[{ required: false }]}>
           <Input placeholder='Имя' />
         </Form.Item>
-        <Form.Item name='Surname' rules={[{ required: false }]}>
+        <Form.Item label='Фамилия' name='Surname' rules={[{ required: false }]}>
           <Input placeholder='Фамилия' />
         </Form.Item>
-        <Form.Item name='Email' rules={[{ required: false }]}>
+        <Form.Item label='Почта' name='Email' rules={[{ required: false }]}>
           <Input type='email' placeholder='Почта' />
         </Form.Item>
         <Form.Item>
@@ -24,12 +24,14 @@ export const Settings = () => {
           </Link>
         </Form.Item>
         <Form.Item
+          label='Пароль'
           name='Password'
           rules={[{ required: true, message: 'Введите пароль' }]}
         >
           <Input type='password' placeholder='Пароль' />
         </Form.Item>
         <Form.Item
+          label='Новый пароль'
           name='New password'
           rules={[{ required: true, message: 'Введите новый пароль' }]}
         >
