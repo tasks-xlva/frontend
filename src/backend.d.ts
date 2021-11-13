@@ -25,11 +25,11 @@ declare namespace Components {
       /**
        * Имя
        */
-      first_name?: string
+      firstName?: string
       /**
        * Фамилия
        */
-      last_name?: string
+      lastName?: string
       /**
        * Почта
        */
@@ -39,11 +39,11 @@ declare namespace Components {
       /**
        * Имя
        */
-      first_name?: string
+      firstName?: string
       /**
        * Фамилия
        */
-      last_name?: string
+      lastName?: string
       /**
        * Почта
        */
@@ -62,11 +62,11 @@ declare namespace Components {
       /**
        * Имя
        */
-      first_name?: string
+      firstName?: string
       /**
        * Фамилия
        */
-      last_name?: string
+      lastName?: string
       /**
        * Почта
        */
@@ -75,7 +75,7 @@ declare namespace Components {
     export interface PatchedSubjectRequest {
       name?: string
       description?: string | null
-      group_id?: number
+      groupId?: number
     }
     export interface PatchedTaskRequest {
       name?: string
@@ -87,12 +87,12 @@ declare namespace Components {
       name: string
       description?: string | null
       tasks: Task[]
-      group_id: number
+      groupId: number
     }
     export interface SubjectRequest {
       name: string
       description?: string | null
-      group_id: number
+      groupId: number
     }
     export interface Task {
       id: number
@@ -125,11 +125,11 @@ declare namespace Components {
       /**
        * Имя
        */
-      first_name?: string
+      firstName?: string
       /**
        * Фамилия
        */
-      last_name?: string
+      lastName?: string
       /**
        * Почта
        */
@@ -139,11 +139,11 @@ declare namespace Components {
       /**
        * Имя
        */
-      first_name?: string
+      firstName?: string
       /**
        * Фамилия
        */
-      last_name?: string
+      lastName?: string
       /**
        * Почта
        */
