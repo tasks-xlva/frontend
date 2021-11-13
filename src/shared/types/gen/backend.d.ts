@@ -3,7 +3,7 @@ declare namespace Definitions {
     /**
      * ID
      */
-    id?: number
+    id: number
     /**
      * Number
      */
