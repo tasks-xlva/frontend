@@ -3,12 +3,32 @@ declare namespace Definitions {
     /**
      * ID
      */
-    id?: number
+    id: number
     /**
      * Number
      */
     number: string
     subjects?: Subject[]
+  }
+  export interface MyPassword {
+    /**
+     * Password
+     */
+    password: string
+  }
+  export interface MyProfile {
+    /**
+     * First name
+     */
+    firstName?: string
+    /**
+     * Last name
+     */
+    lastName?: string
+    /**
+     * Почта
+     */
+    email: string // email
   }
   export interface Subject {
     /**
@@ -41,9 +61,9 @@ declare namespace Definitions {
   }
   export interface TokenObtainPair {
     /**
-     * Username
+     * Email
      */
-    username: string
+    email: string
     /**
      * Password
      */
@@ -74,6 +94,28 @@ declare namespace Definitions {
      * Access
      */
     access: string
+    /**
+     * Refresh
+     */
+    refresh: string
+  }
+  export interface User {
+    /**
+     * First name
+     */
+    firstName?: string
+    /**
+     * Last name
+     */
+    lastName?: string
+    /**
+     * Почта
+     */
+    email: string // email
+    /**
+     * Password
+     */
+    password: string
   }
 }
 declare namespace Paths {
@@ -259,6 +301,66 @@ declare namespace Paths {
     }
     namespace Responses {
       export type $200 = Definitions.TokenRefreshResponse
+    }
+  }
+  namespace UsersCreate {
+    export interface BodyParameters {
+      data: Parameters.Data
+    }
+    namespace Parameters {
+      export type Data = Definitions.User
+    }
+    namespace Responses {
+      export type $201 = Definitions.User
+    }
+  }
+  namespace UsersMePartialUpdate {
+    export interface BodyParameters {
+      data: Parameters.Data
+    }
+    namespace Parameters {
+      export type Data = Definitions.MyProfile
+    }
+    namespace Responses {
+      export type $200 = Definitions.MyProfile
+    }
+  }
+  namespace UsersMePasswordPartialUpdate {
+    export interface BodyParameters {
+      data: Parameters.Data
+    }
+    namespace Parameters {
+      export type Data = Definitions.MyPassword
+    }
+    namespace Responses {
+      export type $200 = Definitions.MyPassword
+    }
+  }
+  namespace UsersMePasswordUpdate {
+    export interface BodyParameters {
+      data: Parameters.Data
+    }
+    namespace Parameters {
+      export type Data = Definitions.MyPassword
+    }
+    namespace Responses {
+      export type $200 = Definitions.MyPassword
+    }
+  }
+  namespace UsersMeRead {
+    namespace Responses {
+      export type $200 = Definitions.MyProfile
+    }
+  }
+  namespace UsersMeUpdate {
+    export interface BodyParameters {
+      data: Parameters.Data
+    }
+    namespace Parameters {
+      export type Data = Definitions.MyProfile
+    }
+    namespace Responses {
+      export type $200 = Definitions.MyProfile
     }
   }
 }
