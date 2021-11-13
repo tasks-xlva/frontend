@@ -2,11 +2,12 @@ import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 import { PUBLIC_PATH } from 'shared/config'
 import { useLogin } from './lib/use-login'
+import { Grid } from 'shared/ui'
 
 export const Login = () => {
   const { handleLogin } = useLogin()
   return (
-    <>
+    <Grid>
       <Typography.Title level={2}>Вход</Typography.Title>
       <Form onFinish={handleLogin}>
         <Form.Item
@@ -39,6 +40,6 @@ export const Login = () => {
           </Link>
         </Form.Item>
       </Form>
-    </>
+    </Grid>
   )
 }
