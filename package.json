@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "tools:dtsgen": "dtsgen --out ./src/shared/types/gen/backend.d.ts --url https://tasks.api.xlvn.ru/v1/swagger.json"
+    "tools:dtsgen": "dtsgen --out ./src/shared/types/gen/backend.d.ts --url https://tasks.api.xlvn.ru/v1/schema/"
   },
   "eslintConfig": {
     "extends": [
