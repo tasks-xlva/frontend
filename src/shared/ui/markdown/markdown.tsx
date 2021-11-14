@@ -10,11 +10,13 @@ interface Props {
   onChange?: Dispatch<string>
 }
 
+const options = { spellChecker: false }
+
 export const Markdown = ({ value, onChange, isEditing }: Props) => {
   return isEditing ? (
     <SimpleMdeReact
       className={styles.editor}
-      options={{ spellChecker: false }}
+      options={options}
       value={value}
       onChange={onChange}
     />
