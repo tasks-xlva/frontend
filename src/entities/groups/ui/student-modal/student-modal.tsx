@@ -1,5 +1,6 @@
 import { Modal } from 'shared/ui'
 import { Radio } from 'antd'
+import styles from './student-modal.module.scss'
 
 interface Props {
   id: number | null
@@ -15,7 +16,12 @@ export const StudentModal = ({ id, onClose }: Props) => {
 
   return (
     <Modal title={id} visible={Boolean(id)} onCancel={onClose}>
-      <Radio.Group options={options} optionType='button' buttonStyle='solid' />
+      <Radio.Group
+        className={styles.radios}
+        options={options}
+        optionType='button'
+        buttonStyle='solid'
+      />
     </Modal>
   )
 }
