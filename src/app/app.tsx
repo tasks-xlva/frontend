@@ -3,7 +3,8 @@ import './styles/index.scss'
 import { PrivateLayout } from 'features/private-layout'
 import { PublicLayout } from 'features/public-layout'
 import { useAuthorization } from 'features/authorization'
-import { PublicPages, PrivatePages } from 'processes/routing'
+import { Routing } from 'processes/routing'
+import { privateRoutes, publicRoutes } from 'app/routes'
 
 export const App = () => {
   const { isAuthorized } = useAuthorization()
@@ -12,11 +13,11 @@ export const App = () => {
     <>
       {isAuthorized ? (
         <PrivateLayout>
-          <PrivatePages />
+          <Routing routes={privateRoutes} />
         </PrivateLayout>
       ) : (
         <PublicLayout>
-          <PublicPages />
+          <Routing routes={publicRoutes} />
         </PublicLayout>
       )}
     </>

@@ -11,6 +11,13 @@ a.ant-typography,
 .ant-card,
 .ant-btn,
 .ant-input,
-.ant-upload-list-item {
+.ant-upload-list-item,
+.ant-modal-content,
+.ant-radio-button-wrapper,
+.ant-input-affix-wrapper {
   border-radius: 0 !important;
+}
+
+.ant-form-large .ant-form-item-label > label {
+  height: auto;
 }

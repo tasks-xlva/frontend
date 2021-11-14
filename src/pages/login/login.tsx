@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { PUBLIC_PATH } from 'shared/config'
 import { useLogin } from './lib/use-login'
 import { Grid } from 'shared/ui'
+import { LockOutlined, UserOutlined } from '@ant-design/icons'
 
 export const Login = () => {
   const { handleLogin } = useLogin()
@@ -11,18 +12,20 @@ export const Login = () => {
       <Typography.Title level={2}>Вход</Typography.Title>
       <Form onFinish={handleLogin} layout='vertical'>
         <Form.Item
-          label='Почта'
           name='email'
           rules={[{ required: true, message: 'Введите почту' }]}
         >
-          <Input placeholder='Почта' />
+          <Input prefix={<UserOutlined />} placeholder='Почта' />
         </Form.Item>
         <Form.Item
-          label='Пароль'
           name='password'
           rules={[{ required: true, message: 'Введите пароль' }]}
         >
-          <Input type='password' placeholder='Пароль' />
+          <Input
+            prefix={<LockOutlined />}
+            type='password'
+            placeholder='Пароль'
+          />
         </Form.Item>
         <Form.Item>
           <Button type='primary' htmlType='submit' block>
