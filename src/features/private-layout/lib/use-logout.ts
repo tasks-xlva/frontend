@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useAuthorization } from 'features/lib/authorization'
+import { useAuthorization } from 'features/authorization'
 
 export const useLogout = () => {
   const { setIsAuthorized } = useAuthorization()

@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react'
 import { Drawer, PageHeader, Typography } from 'antd'
 import styles from './private-layout.module.scss'
-import { Aside } from './aside/aside'
+import { Aside } from './ui/aside/aside'
 import { MenuOutlined } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 import { PRIVATE_PATH } from 'shared/config'
