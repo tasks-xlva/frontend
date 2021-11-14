@@ -1,13 +1,6 @@
 import { useCallback, useState } from 'react'
 
-type UseVisibleProps = {
-  isVisible: boolean
-  hide: () => void
-  show: () => void
-  toggle: () => void
-}
-
-export const useVisible = (defaultValue: boolean = false): UseVisibleProps => {
+export const useVisible = (defaultValue: boolean = false) => {
   const [isVisible, setIsVisible] = useState<boolean>(defaultValue)
 
   const show = useCallback(() => {
