@@ -1,5 +1,5 @@
 import { Redirect, Route, Switch } from 'react-router-dom'
-import { Routes } from './routes'
+import { Routes } from 'processes/routing/lib/routes'
 
 export const renderRoutes = (routes: Routes) => {
   const defaultPath = routes.find((route) => route.default)?.path
