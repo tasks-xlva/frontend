@@ -31,7 +31,7 @@ export const Navigation = ({ onClose, visible }: Props) => {
       width='100%'
     >
       {pages.map(({ title, link }) => (
-        <Link to={link} onClick={onClose}>
+        <Link key={link} to={link} onClick={onClose}>
           <Typography.Title level={2}>{title}</Typography.Title>
         </Link>
       ))}
