@@ -1,9 +1,27 @@
 declare namespace Components {
   namespace Schemas {
+    export interface File {
+      id: number
+      file: string // uri
+    }
+    export interface FileRequest {
+      file: string // binary
+    }
     export interface Group {
       id: number
       number: string
-      subjects: Subject[]
+      subjects: Nested[]
+    }
+    export interface GroupMembership {
+      id: number
+      role: RoleEnum
+      group: number
+      user: number
+    }
+    export interface GroupMembershipRequest {
+      role: RoleEnum
+      group: number
+      user: number
     }
     export interface GroupRequest {
       number: string
@@ -22,32 +40,30 @@ declare namespace Components {
     }
     export interface MyProfile {
       id: number
-      /**
-       * Имя
-       */
-      firstName?: string
-      /**
-       * Фамилия
-       */
-      lastName?: string
-      /**
-       * Почта
-       */
+      firstName: string
+      lastName: string
       email: string // email
     }
     export interface MyProfileRequest {
-      /**
-       * Имя
-       */
-      firstName?: string
-      /**
-       * Фамилия
-       */
-      lastName?: string
-      /**
-       * Почта
-       */
+      firstName: string
+      lastName: string
       email: string // email
+    }
+    export interface Nested {
+      id: number
+      name: string
+      description?: string | null
+      group: number
+    }
+    export interface NestedRequest {
+      name: string
+      description?: string | null
+      group: number
+    }
+    export interface PatchedGroupMembershipRequest {
+      role?: RoleEnum
+      group?: number
+      user?: number
     }
     export interface PatchedGroupRequest {
       number?: string
@@ -59,17 +75,8 @@ declare namespace Components {
       password?: string
     }
     export interface PatchedMyProfileRequest {
-      /**
-       * Имя
-       */
       firstName?: string
-      /**
-       * Фамилия
-       */
       lastName?: string
-      /**
-       * Почта
-       */
       email?: string // email
     }
     export interface PatchedSubjectRequest {
@@ -80,8 +87,9 @@ declare namespace Components {
     export interface PatchedTaskRequest {
       name?: string
       description?: string
-      subject?: string // uri
+      subjectId?: number
     }
+    export type RoleEnum = 'ADMIN' | 'EDITOR' | 'MEMBER'
     export interface Subject {
       id: number
       name: string
@@ -98,12 +106,12 @@ declare namespace Components {
       id: number
       name: string
       description: string
-      subject: string // uri
+      subjectId: number
     }
     export interface TaskRequest {
       name: string
       description: string
-      subject: string // uri
+      subjectId: number
     }
     export interface TokenObtainPair {
       access: string
@@ -122,37 +130,39 @@ declare namespace Components {
     }
     export interface User {
       id: number
-      /**
-       * Имя
-       */
-      firstName?: string
-      /**
-       * Фамилия
-       */
-      lastName?: string
-      /**
-       * Почта
-       */
+      firstName: string
+      lastName: string
       email: string // email
     }
     export interface UserRequest {
-      /**
-       * Имя
-       */
-      firstName?: string
-      /**
-       * Фамилия
-       */
-      lastName?: string
-      /**
-       * Почта
-       */
+      firstName: string
+      lastName: string
       email: string // email
+      /**
+       * Пароль
+       */
       password: string
     }
   }
 }
 declare namespace Paths {
+  namespace FilesCreate {
+    export type RequestBody = Components.Schemas.FileRequest
+    namespace Responses {
+      export type $201 = Components.Schemas.File
+    }
+  }
+  namespace FilesRetrieve {
+    namespace Parameters {
+      export type Id = number
+    }
+    export interface PathParameters {
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export type $200 = Components.Schemas.File
+    }
+  }
   namespace GroupsCreate {
     export type RequestBody = Components.Schemas.GroupRequest
     namespace Responses {
@@ -173,6 +183,83 @@ declare namespace Paths {
   namespace GroupsList {
     namespace Responses {
       export type $200 = Components.Schemas.Group[]
+    }
+  }
+  namespace GroupsMembershipsCreate {
+    namespace Parameters {
+      export type GroupPk = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+    }
+    export type RequestBody = Components.Schemas.GroupMembershipRequest
+    namespace Responses {
+      export type $201 = Components.Schemas.GroupMembership
+    }
+  }
+  namespace GroupsMembershipsDestroy {
+    namespace Parameters {
+      export type GroupPk = number
+      export type Id = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export interface $204 {}
+    }
+  }
+  namespace GroupsMembershipsList {
+    namespace Parameters {
+      export type GroupPk = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+    }
+    namespace Responses {
+      export type $200 = Components.Schemas.GroupMembership[]
+    }
+  }
+  namespace GroupsMembershipsPartialUpdate {
+    namespace Parameters {
+      export type GroupPk = number
+      export type Id = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+      id: Parameters.Id
+    }
+    export type RequestBody = Components.Schemas.PatchedGroupMembershipRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.GroupMembership
+    }
+  }
+  namespace GroupsMembershipsRetrieve {
+    namespace Parameters {
+      export type GroupPk = number
+      export type Id = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export type $200 = Components.Schemas.GroupMembership
+    }
+  }
+  namespace GroupsMembershipsUpdate {
+    namespace Parameters {
+      export type GroupPk = number
+      export type Id = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+      id: Parameters.Id
+    }
+    export type RequestBody = Components.Schemas.GroupMembershipRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.GroupMembership
     }
   }
   namespace GroupsPartialUpdate {
