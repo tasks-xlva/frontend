@@ -1,29 +1,24 @@
 import { Link } from 'react-router-dom'
-import { PRIVATE_PATH } from 'shared/config'
 import { Drawer, Typography } from 'antd'
-import { useLogout } from '../../lib/use-logout'
-import styles from './navigation.module.scss'
+import { pages } from '../../lib/pages'
+import classNames from 'classnames'
+import styles from './mobile-navigation.module.scss'
+import { useLogout } from 'features/private-layout/lib/use-logout'
 import { useMyself } from 'entities/users/api'
 
 interface Props {
   onClose: () => void
   visible: boolean
+  className?: string
 }
 
-const pages: { link: string; title: string }[] = [
-  { title: `Мои задания`, link: PRIVATE_PATH.TASKS },
-  { title: `Предметы`, link: PRIVATE_PATH.SUBJECTS },
-  { title: `Группы`, link: PRIVATE_PATH.GROUPS },
-  { title: `Настройки`, link: PRIVATE_PATH.SETTINGS },
-]
-
-export const Navigation = ({ onClose, visible }: Props) => {
+export const MobileNavigation = ({ onClose, visible, className }: Props) => {
   const { handleLogout } = useLogout()
   const { myself } = useMyself()
 
   return (
     <Drawer
-      className={styles.drawer}
+      className={classNames(styles.drawer, className)}
       placement='left'
       title={`${myself?.firstName} ${myself?.lastName}`}
       onClose={onClose}
