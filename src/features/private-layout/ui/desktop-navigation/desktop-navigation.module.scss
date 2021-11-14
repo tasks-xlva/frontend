@@ -1,0 +1,31 @@
+.menu {
+  padding: 24px;
+  border: none;
+}
+
+.menuItem {
+  background: transparent !important;
+
+  &:global(.ant-menu-item) {
+    &::after {
+      right: unset;
+      left: 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-left: 3px solid var(--ant-primary-color);
+      opacity: 0.3;
+      transform: scaleY(0);
+      transition: transform 0.15s;
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+    }
+  }
+}

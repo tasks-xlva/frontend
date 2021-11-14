@@ -1,11 +1,10 @@
 import { ReactNode } from 'react'
 import { PageHeader } from 'antd'
-import styles from './private-layout.module.scss'
-import { Aside } from './ui/aside/aside'
-import { MenuOutlined } from '@ant-design/icons'
-import { Navigation } from './ui/navigation/navigation'
-import { useVisible } from 'shared/hooks/use-visible'
 import { motion } from 'framer-motion'
+import styles from './private-layout.module.scss'
+import { MenuOutlined } from '@ant-design/icons'
+import { DesktopNavigation, MobileNavigation, Aside } from './ui'
+import { useIsDesktop, useVisible } from 'shared/hooks'
 
 interface Props {
   children: ReactNode
@@ -13,6 +12,7 @@ interface Props {
 
 export const PrivateLayout = ({ children }: Props) => {
   const { show, hide, isVisible } = useVisible()
+  const { isDesktop } = useIsDesktop()
 
   return (
     <motion.div
@@ -24,12 +24,22 @@ export const PrivateLayout = ({ children }: Props) => {
       <PageHeader
         className={styles.header}
         backIcon={<MenuOutlined />}
-        onBack={show}
+        onBack={void !isDesktop && show}
         title='Tasks'
       />
-      <Navigation onClose={hide} visible={isVisible} />
-      <main className={styles.content}>{children}</main>
-      <aside className={styles.aside} id='private-layout-aside' />
+      <div className={styles.wrapper}>
+        {isDesktop ? (
+          <DesktopNavigation className={styles.navigation} />
+        ) : (
+          <MobileNavigation
+            className={styles.navigation}
+            onClose={hide}
+            visible={isVisible}
+          />
+        )}
+        <main className={styles.content}>{children}</main>
+        <aside className={styles.aside} id='private-layout-aside' />
+      </div>
     </motion.div>
   )
 }

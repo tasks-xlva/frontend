@@ -9,3 +9,52 @@
 .aside {
   padding: 24px;
 }
+
+@media (min-width: 1024px) {
+  .header {
+    :global(.ant-page-header-heading) {
+      width: 976px;
+      margin: auto;
+    }
+  }
+
+  .wrapper {
+    width: 1024px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: 'n c' 'n a';
+  }
+
+  .navigation {
+    grid-area: n;
+  }
+
+  .content {
+    grid-area: c;
+    padding: 24px 24px 24px 0;
+  }
+
+  .aside {
+    grid-area: a;
+  }
+}
+
+@media (min-width: 1440px) {
+  .header {
+    :global(.ant-page-header-heading) {
+      width: 1176px;
+    }
+  }
+
+  .wrapper {
+    width: 1224px;
+    grid-template-columns: 262px 1fr 262px;
+    grid-template-areas: 'n c a';
+  }
+
+  .content {
+    grid-area: c;
+    padding: 24px 0;
+  }
+}

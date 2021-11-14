@@ -11,6 +11,18 @@
   }
 }
 
-.header {
-  border-bottom: 1px solid var(--border-color);
+@media (min-width: 1024px) {
+  .header {
+    border-bottom: 1px solid var(--border-color);
+    :global(.ant-page-header-heading) {
+      justify-content: center;
+    }
+  }
+
+  .wrapper {
+    width: 360px;
+    margin: 80px auto;
+    padding: 36px 24px;
+    border: 1px solid var(--ant-primary-color);
+  }
 }
