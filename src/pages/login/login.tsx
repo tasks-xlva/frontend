@@ -6,7 +6,8 @@ import { Grid } from 'shared/ui'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 
 export const Login = () => {
-  const { handleLogin } = useLogin()
+  const { handleLogin, isLoading } = useLogin()
+
   return (
     <Grid>
       <Typography.Title level={2}>Вход</Typography.Title>
@@ -28,7 +29,7 @@ export const Login = () => {
           />
         </Form.Item>
         <Form.Item>
-          <Button type='primary' htmlType='submit' block>
+          <Button loading={isLoading} type='primary' htmlType='submit' block>
             Войти
           </Button>
         </Form.Item>

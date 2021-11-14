@@ -2,13 +2,16 @@ import { useCallback } from 'react'
 import { obtainToken } from 'entities/users/api'
 import { updateTokens, useAuthorization } from 'features/authorization'
 import { notification } from 'antd'
+import { useLoading } from 'shared/hooks'
 
 export const useLogin = () => {
   const { setIsAuthorized } = useAuthorization()
+  const { start, finish, isLoading } = useLoading()
 
   const handleLogin = useCallback(
     async (params: Parameters<typeof obtainToken>['0']) => {
       try {
+        start()
         const { data } = await obtainToken(params)
         updateTokens(data)
         setIsAuthorized(true)
@@ -18,10 +21,12 @@ export const useLogin = () => {
           message: `Ошибка входа`,
           description: `Неверный логин или пароль`,
         })
+      } finally {
+        finish()
       }
     },
-    [setIsAuthorized],
+    [finish, setIsAuthorized, start],
   )
 
-  return { handleLogin }
+  return { handleLogin, isLoading }
 }

@@ -3,7 +3,7 @@ import { PageHeader } from 'antd'
 import { motion } from 'framer-motion'
 import styles from './private-layout.module.scss'
 import { MenuOutlined } from '@ant-design/icons'
-import { DesktopNavigation, MobileNavigation, Aside } from './ui'
+import { DesktopNavigation, MobileNavigation, Aside, Extra } from './ui'
 import { useIsDesktop, useVisible } from 'shared/hooks'
 
 interface Props {
@@ -24,8 +24,9 @@ export const PrivateLayout = ({ children }: Props) => {
       <PageHeader
         className={styles.header}
         backIcon={<MenuOutlined />}
-        onBack={void !isDesktop && show}
+        onBack={!isDesktop ? show : undefined}
         title='Tasks'
+        extra={isDesktop && <Extra />}
       />
       <div className={styles.wrapper}>
         {isDesktop ? (
