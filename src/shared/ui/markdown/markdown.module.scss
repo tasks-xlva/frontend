@@ -1,0 +1,23 @@
+.editor {
+  :global(.EasyMDEContainer) {
+    border: 1px solid var(--border-color);
+  }
+
+  :global(.editor-toolbar) {
+    border: none;
+  }
+
+  :global(.CodeMirror) {
+    border-radius: 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.viewer {
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}

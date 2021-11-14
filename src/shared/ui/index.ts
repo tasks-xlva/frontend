@@ -1,3 +1,4 @@
 export * from './modal/modal'
 export * from './link-card/link-card'
 export * from './grid/grid'
+export * from './markdown/markdown'

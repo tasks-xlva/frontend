@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
-import { DatePicker, Input, Form, Typography, Upload } from 'antd'
-import { ComponentProps } from 'react'
-import { Grid } from 'shared/ui'
+import { Button, DatePicker, Form, Typography, Upload } from 'antd'
+import { ComponentProps, useState } from 'react'
+import { Grid, Markdown } from 'shared/ui'
 
 const fileList: ComponentProps<typeof Upload>['defaultFileList'] = [
   {
@@ -21,12 +21,20 @@ const fileList: ComponentProps<typeof Upload>['defaultFileList'] = [
 
 export const Task = () => {
   let { taskId } = useParams<{ taskId: string }>()
+  const [isEditing, setIsEditing] = useState(false)
 
   return (
     <Grid>
       <Typography.Title level={2}>{taskId}</Typography.Title>
-      <Input.TextArea />
       <Form layout='vertical'>
+        <Form.Item name='description'>
+          <Markdown isEditing={isEditing} />
+        </Form.Item>
+        <Form.Item>
+          <Button block onClick={() => setIsEditing(!isEditing)}>
+            {isEditing ? `Сохранить` : `Редактировать`} описание
+          </Button>
+        </Form.Item>
         <Form.Item label='Дедлайн' name='deadline'>
           <DatePicker placeholder='Укажите дедлайн' />
         </Form.Item>
