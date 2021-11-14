@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
-import { obtainToken } from 'entities/api/token'
-import { updateTokens, useAuthorization } from 'features/lib/authorization'
+import { obtainToken } from 'entities/users/api'
+import { updateTokens, useAuthorization } from 'features/authorization'
 import { notification } from 'antd'
 
 export const useLogin = () => {

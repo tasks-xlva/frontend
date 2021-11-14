@@ -3,9 +3,9 @@ import { generatePath, useParams } from 'react-router-dom'
 import { LinkCard } from 'shared/ui/link-card/link-card'
 import styles from './group.module.scss'
 import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
-import { StudentsList } from 'entities/ui/students-list/students-list'
+import { StudentsList } from 'entities/groups/ui'
 import { PRIVATE_PATH } from 'shared/config'
-import { PrivateLayout } from 'features/ui/private-layout/private-layout'
+import { PrivateLayout } from 'features/private-layout'
 import { Grid } from 'shared/ui'
 
 export const Group = () => {
