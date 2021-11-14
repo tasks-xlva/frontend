@@ -3,6 +3,7 @@ import { PRIVATE_PATH } from 'shared/config'
 import { Drawer, Typography } from 'antd'
 import { useLogout } from '../../lib/use-logout'
 import styles from './navigation.module.scss'
+import { useMyself } from 'entities/users/api'
 
 interface Props {
   onClose: () => void
@@ -18,12 +19,13 @@ const pages: { link: string; title: string }[] = [
 
 export const Navigation = ({ onClose, visible }: Props) => {
   const { handleLogout } = useLogout()
+  const { myself } = useMyself()
 
   return (
     <Drawer
       className={styles.drawer}
       placement='left'
-      title='Имя Фамилия'
+      title={`${myself?.firstName} ${myself?.lastName}`}
       onClose={onClose}
       visible={visible}
       width='100%'
