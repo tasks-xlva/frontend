@@ -1,1 +1,1 @@
-export * from './private-layout'
+export * from './ui/private-layout/private-layout'

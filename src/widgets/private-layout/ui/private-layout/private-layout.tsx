@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import { PageHeader } from 'antd'
 import { motion } from 'framer-motion'
-import styles from './private-layout.module.scss'
+import styles from 'widgets/private-layout/ui/private-layout/private-layout.module.scss'
 import { MenuOutlined } from '@ant-design/icons'
-import { DesktopNavigation, MobileNavigation, Aside, Extra } from './ui'
+import { DesktopNavigation, MobileNavigation, Aside, Extra } from '..'
 import { useIsDesktop, useVisible } from 'shared/hooks'
 import { Logo } from 'shared/assets'
 
