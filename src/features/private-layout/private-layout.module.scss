@@ -10,6 +10,18 @@
   padding: 24px;
 }
 
+.header {
+  :global(.ant-page-header-heading-title) {
+    height: 32px;
+    margin: 0;
+  }
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
 @media (min-width: 1024px) {
   .header {
     :global(.ant-page-header-heading) {

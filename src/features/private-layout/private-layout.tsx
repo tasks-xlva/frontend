@@ -5,6 +5,7 @@ import styles from './private-layout.module.scss'
 import { MenuOutlined } from '@ant-design/icons'
 import { DesktopNavigation, MobileNavigation, Aside, Extra } from './ui'
 import { useIsDesktop, useVisible } from 'shared/hooks'
+import { Logo } from 'shared/assets'
 
 interface Props {
   children: ReactNode
@@ -25,7 +26,7 @@ export const PrivateLayout = ({ children }: Props) => {
         className={styles.header}
         backIcon={<MenuOutlined />}
         onBack={!isDesktop ? show : undefined}
-        title='Tasks'
+        title={<Logo className={styles.logo} />}
         extra={isDesktop && <Extra />}
       />
       <div className={styles.wrapper}>
