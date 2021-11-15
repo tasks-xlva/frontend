@@ -1,7 +1,8 @@
-import { generatePath, useParams } from 'react-router-dom'
 import { Input, Typography } from 'antd'
-import { Grid, LinkCard } from 'shared/ui'
+import { generatePath, useParams } from 'react-router-dom'
+
 import { PRIVATE_PATH } from 'shared/config'
+import { Grid, LinkCard } from 'shared/ui'
 
 export const Subject = () => {
   let { subjectId } = useParams<{ subjectId: string }>()

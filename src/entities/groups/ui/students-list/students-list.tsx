@@ -1,5 +1,6 @@
 import { List, Typography } from 'antd'
 import { Dispatch } from 'react'
+
 import { Grid } from 'shared/ui'
 
 interface Props {
@@ -9,13 +10,13 @@ interface Props {
 const data = [
   {
     id: 111,
-    name: 'Товарищ Тимофей',
-    extra: 'Админ',
+    name: `Товарищ Тимофей`,
+    extra: `Админ`,
   },
   {
     id: 112,
-    name: 'Товарищ Матвей',
-    extra: '',
+    name: `Товарищ Матвей`,
+    extra: ``,
   },
 ]
 

@@ -1,8 +1,10 @@
 import { PageHeader } from 'antd'
-import { ReactNode } from 'react'
-import styles from './public-layout.module.scss'
 import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
+
 import { Logo } from 'shared/assets'
+
+import styles from './public-layout.module.scss'
 
 interface Props {
   children: ReactNode

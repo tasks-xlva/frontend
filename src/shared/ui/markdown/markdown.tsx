@@ -1,8 +1,9 @@
 import { Dispatch } from 'react'
-import SimpleMdeReact from 'react-simplemde-editor'
+import ReactMarkdown from 'react-markdown'
+import { SimpleMdeReact } from 'react-simplemde-editor'
+
 import 'easymde/dist/easymde.min.css'
 import styles from './markdown.module.scss'
-import ReactMarkdown from 'react-markdown'
 
 interface Props {
   isEditing?: boolean

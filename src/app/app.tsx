@@ -1,10 +1,11 @@
-import React from 'react'
 import './styles/index.scss'
-import { PrivateLayout } from 'widgets/private-layout'
-import { PublicLayout } from 'widgets/public-layout'
+import React from 'react'
+
+import { privateRoutes, publicRoutes } from 'app/routes'
 import { useAuthorization } from 'features/authorization'
 import { Routing } from 'features/routing'
-import { privateRoutes, publicRoutes } from 'app/routes'
+import { PrivateLayout } from 'widgets/private-layout'
+import { PublicLayout } from 'widgets/public-layout'
 
 export const App = () => {
   const { isAuthorized } = useAuthorization()

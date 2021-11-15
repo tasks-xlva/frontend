@@ -1,17 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
 import 'antd/dist/antd.variable.min.css'
-import { App } from 'app'
 import { ConfigProvider } from 'antd'
+import { AxiosRequestConfig } from 'axios'
+import React from 'react'
+import { render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { SWRConfig } from 'swr'
+
+import { App } from 'app'
 import { Authorization } from 'features/authorization'
 import { api } from 'shared/api'
-import { SWRConfig } from 'swr'
-import { AxiosRequestConfig } from 'axios'
 
-ConfigProvider.config({ theme: { primaryColor: '#272727' } })
+ConfigProvider.config({ theme: { primaryColor: `#272727` } })
 
-ReactDOM.render(
+render(
   <Authorization>
     <ConfigProvider componentSize='large'>
       <BrowserRouter>
@@ -26,5 +27,5 @@ ReactDOM.render(
       </BrowserRouter>
     </ConfigProvider>
   </Authorization>,
-  document.getElementById('root'),
+  document.getElementById(`root`),
 )

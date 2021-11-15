@@ -1,6 +1,7 @@
 import { Form, Input, Typography } from 'antd'
-import { useParams } from 'react-router-dom'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { StudentsList, StudentModal } from 'entities/groups/ui'
 import { Grid } from 'shared/ui'
 

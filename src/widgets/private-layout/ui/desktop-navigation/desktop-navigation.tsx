@@ -1,9 +1,11 @@
-import { useHistory, useLocation } from 'react-router-dom'
 import { Menu } from 'antd'
-import { pages } from '../../lib/pages'
 import classNames from 'classnames'
-import styles from './desktop-navigation.module.scss'
 import { useCallback, useMemo } from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
+
+import styles from './desktop-navigation.module.scss'
+
+import { pages } from '../../lib/pages'
 
 interface Props {
   className?: string

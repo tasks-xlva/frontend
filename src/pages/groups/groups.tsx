@@ -1,8 +1,9 @@
 import { Button, Typography } from 'antd'
 import { generatePath } from 'react-router-dom'
-import { Grid, LinkCard } from 'shared/ui'
-import { PRIVATE_PATH } from 'shared/config'
+
 import { useGroups } from 'entities/groups/api'
+import { PRIVATE_PATH } from 'shared/config'
+import { Grid, LinkCard } from 'shared/ui'
 
 export const Groups = () => {
   const { groups } = useGroups()

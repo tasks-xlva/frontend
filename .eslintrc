@@ -1,0 +1,40 @@
+{
+  "extends": ["react-app", "plugin:import/recommended"],
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "extends": ["plugin:import/typescript"],
+      "settings": {
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+          "typescript": {
+            "project": "."
+          }
+        }
+      },
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              "sibling",
+              "type",
+              "object"
+            ],
+            "newlines-between": "always",
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": false
+            }
+          }
+        ],
+        "quotes": ["error", "backtick"]
+      }
+    }
+  ]
+}

@@ -1,12 +1,14 @@
+import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
 import { Button, Typography } from 'antd'
 import { generatePath, useParams } from 'react-router-dom'
-import { LinkCard } from 'shared/ui/link-card/link-card'
-import styles from './group.module.scss'
-import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
+
 import { StudentsList } from 'entities/groups/ui'
 import { PRIVATE_PATH } from 'shared/config'
-import { PrivateLayout } from 'widgets/private-layout'
 import { Grid } from 'shared/ui'
+import { LinkCard } from 'shared/ui/link-card/link-card'
+import { PrivateLayout } from 'widgets/private-layout'
+
+import styles from './group.module.scss'
 
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()

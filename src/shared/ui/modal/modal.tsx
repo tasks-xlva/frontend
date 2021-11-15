@@ -1,9 +1,10 @@
 import { Button, Modal as AntModal, Typography } from 'antd'
-import { ComponentProps, ReactNode, useEffect } from 'react'
 import classNames from 'classnames'
+import { ComponentProps, ReactNode, useEffect } from 'react'
+
 import styles from './modal.module.scss'
 
-interface Props extends Omit<ComponentProps<typeof AntModal>, 'closable'> {
+interface Props extends Omit<ComponentProps<typeof AntModal>, `closable`> {
   title: ReactNode
 }
 
@@ -36,7 +37,7 @@ export const Modal = ({
             <Button
               block
               type='primary'
-              onClick={() => modal.info({ title: 'Use Hook!' })}
+              onClick={() => modal.info({ title: `Use Hook!` })}
             >
               Сохранить
             </Button>

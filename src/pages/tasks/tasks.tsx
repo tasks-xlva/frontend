@@ -1,7 +1,8 @@
 import { Typography } from 'antd'
-import { Grid, LinkCard } from 'shared/ui'
 import { generatePath } from 'react-router-dom'
+
 import { PRIVATE_PATH } from 'shared/config'
+import { Grid, LinkCard } from 'shared/ui'
 
 export const Tasks = () => {
   return (

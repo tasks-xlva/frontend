@@ -1,5 +1,6 @@
-import { ReactNode } from 'react'
 import classNames from 'classnames'
+import { ReactNode } from 'react'
+
 import styles from './grid.module.scss'
 
 interface Props {

@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+
 import { useAuthorization } from 'features/authorization'
 
 export const useLogout = () => {
