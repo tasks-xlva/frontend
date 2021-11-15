@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/index.scss'
-import { PrivateLayout } from 'features/private-layout'
-import { PublicLayout } from 'features/public-layout'
+import { PrivateLayout } from 'widgets/private-layout'
+import { PublicLayout } from 'widgets/public-layout'
 import { useAuthorization } from 'features/authorization'
-import { Routing } from 'processes/routing'
+import { Routing } from 'features/routing'
 import { privateRoutes, publicRoutes } from 'app/routes'
 
 export const App = () => {

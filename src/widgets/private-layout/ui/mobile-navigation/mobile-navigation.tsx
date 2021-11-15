@@ -3,7 +3,7 @@ import { Drawer, Typography } from 'antd'
 import { pages } from '../../lib/pages'
 import classNames from 'classnames'
 import styles from './mobile-navigation.module.scss'
-import { useLogout } from 'features/private-layout/lib/use-logout'
+import { useLogout } from '../../lib/use-logout'
 import { useMyself } from 'entities/users/api'
 
 interface Props {

@@ -5,7 +5,7 @@ import styles from './group.module.scss'
 import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
 import { StudentsList } from 'entities/groups/ui'
 import { PRIVATE_PATH } from 'shared/config'
-import { PrivateLayout } from 'features/private-layout'
+import { PrivateLayout } from 'widgets/private-layout'
 import { Grid } from 'shared/ui'
 
 export const Group = () => {
