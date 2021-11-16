@@ -1,7 +1,3 @@
-.header {
-  border-bottom: 1px solid var(--border-color);
-}
-
 .content {
   padding: 24px;
 }
@@ -11,6 +7,8 @@
 }
 
 .header {
+  border-bottom: 1px solid var(--border-color);
+
   :global(.ant-page-header-heading-title) {
     height: 32px;
     margin: 0;
@@ -18,8 +16,8 @@
 }
 
 .logo {
-  height: 32px;
   width: auto;
+  height: 32px;
 }
 
 @media (min-width: 1024px) {
@@ -31,11 +29,11 @@
   }
 
   .wrapper {
+    display: grid;
+    grid-template-areas: 'n c' 'n a';
+    grid-template-columns: 200px 1fr;
     width: 1024px;
     margin: auto;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 'n c' 'n a';
   }
 
   .navigation {
@@ -60,9 +58,9 @@
   }
 
   .wrapper {
-    width: 1224px;
-    grid-template-columns: 262px 1fr 262px;
     grid-template-areas: 'n c a';
+    grid-template-columns: 262px 1fr 262px;
+    width: 1224px;
   }
 
   .content {

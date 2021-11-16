@@ -1,12 +1,12 @@
 .title {
   display: grid;
-  align-items: center;
   grid-template-columns: 1fr auto;
   grid-gap: 8px;
+  align-items: center;
   height: 100%;
   margin: 0;
-  cursor: pointer;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .icon {
