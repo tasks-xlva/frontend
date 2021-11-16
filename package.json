@@ -34,6 +34,8 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
+    "eslint": "eslint src",
+    "stylelint": "stylelint src",
     "prepare": "husky install",
     "tools:dtsgen": "./get-backend-types.sh"
   },
