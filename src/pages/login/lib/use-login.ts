@@ -1,7 +1,8 @@
+import { notification } from 'antd'
 import { useCallback } from 'react'
+
 import { obtainToken } from 'entities/users/api'
 import { updateTokens, useAuthorization } from 'features/authorization'
-import { notification } from 'antd'
 import { useLoading } from 'shared/hooks'
 
 export const useLogin = () => {
@@ -9,7 +10,7 @@ export const useLogin = () => {
   const { start, finish, isLoading } = useLoading()
 
   const handleLogin = useCallback(
-    async (params: Parameters<typeof obtainToken>['0']) => {
+    async (params: Parameters<typeof obtainToken>[`0`]) => {
       try {
         start()
         const { data } = await obtainToken(params)

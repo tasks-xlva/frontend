@@ -1,7 +1,10 @@
 import { Typography, Popover, Button } from 'antd'
 import { useMemo } from 'react'
+
 import { useMyself } from 'entities/users/api'
+
 import styles from './extra.module.scss'
+
 import { useLogout } from '../../lib/use-logout'
 
 export const Extra = () => {

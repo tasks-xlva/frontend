@@ -1,5 +1,7 @@
-import { Modal } from 'shared/ui'
 import { Radio } from 'antd'
+
+import { Modal } from 'shared/ui'
+
 import styles from './student-modal.module.scss'
 
 interface Props {
@@ -9,9 +11,9 @@ interface Props {
 
 export const StudentModal = ({ id, onClose }: Props) => {
   const options = [
-    { label: 'Админ', value: 2 },
-    { label: 'Редактор', value: 1 },
-    { label: 'Участник', value: 0 },
+    { label: `Админ`, value: 2 },
+    { label: `Редактор`, value: 1 },
+    { label: `Участник`, value: 0 },
   ]
 
   return (

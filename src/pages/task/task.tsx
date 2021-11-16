@@ -1,21 +1,21 @@
-import { useParams } from 'react-router-dom'
 import { Button, DatePicker, Form, Typography, Upload } from 'antd'
 import { ComponentProps, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { Grid, Markdown } from 'shared/ui'
 
-const fileList: ComponentProps<typeof Upload>['defaultFileList'] = [
+const fileList: ComponentProps<typeof Upload>[`defaultFileList`] = [
   {
-    uid: '-1',
-    name: 'Вложение 1',
-    status: 'done',
-    url: 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80',
-    thumbUrl:
-      'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80',
+    uid: `-1`,
+    name: `Вложение 1`,
+    status: `done`,
+    url: `https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80`,
+    thumbUrl: `https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80`,
   },
   {
-    uid: '-2',
-    name: 'yyy.png',
-    status: 'error',
+    uid: `-2`,
+    name: `yyy.png`,
+    status: `error`,
   },
 ]
 
@@ -41,7 +41,7 @@ export const Task = () => {
       </Form>
       <Typography.Title level={3}>Вложения</Typography.Title>
       <Upload action='' listType='picture-card' defaultFileList={fileList}>
-        {'Загрузить'}
+        {`Загрузить`}
       </Upload>
     </Grid>
   )

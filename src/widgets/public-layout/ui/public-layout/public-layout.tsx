@@ -1,7 +1,10 @@
 import { PageHeader } from 'antd'
-import { ReactNode } from 'react'
-import styles from './public-layout.module.scss'
 import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
+
+import { Logo } from 'shared/assets'
+
+import styles from './public-layout.module.scss'
 
 interface Props {
   children: ReactNode
@@ -17,7 +20,10 @@ export const PublicLayout = (props: Props) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <PageHeader title='Tasks' className={styles.header} />
+      <PageHeader
+        title={<Logo className={styles.logo} />}
+        className={styles.header}
+      />
       <main className={styles.wrapper}>{children}</main>
     </motion.div>
   )

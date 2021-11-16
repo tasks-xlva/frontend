@@ -1,6 +1,7 @@
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
-import { Routes } from 'app/routes'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
+
+import { Routes } from 'app/routes'
 
 interface Props {
   routes: Routes

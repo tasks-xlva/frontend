@@ -54,11 +54,13 @@ declare namespace Components {
       name: string
       description?: string | null
       group: number
+      image?: null | number
     }
     export interface NestedRequest {
       name: string
       description?: string | null
       group: number
+      image?: null | number
     }
     export interface PatchedGroupMembershipRequest {
       role?: RoleEnum
@@ -83,35 +85,41 @@ declare namespace Components {
       name?: string
       description?: string | null
       groupId?: number
+      image?: string | null // uri
     }
     export interface PatchedTaskRequest {
       name?: string
       description?: string
       subjectId?: number
+      attachments?: string /* uri */[]
     }
-    export type RoleEnum = 'ADMIN' | 'EDITOR' | 'MEMBER'
+    export type RoleEnum = `ADMIN` | `EDITOR` | `MEMBER`
     export interface Subject {
       id: number
       name: string
       description?: string | null
       tasks: Task[]
       groupId: number
+      image?: string | null // uri
     }
     export interface SubjectRequest {
       name: string
       description?: string | null
       groupId: number
+      image?: string | null // uri
     }
     export interface Task {
       id: number
       name: string
       description: string
       subjectId: number
+      attachments?: string /* uri */[]
     }
     export interface TaskRequest {
       name: string
       description: string
       subjectId: number
+      attachments?: string /* uri */[]
     }
     export interface TokenObtainPair {
       access: string

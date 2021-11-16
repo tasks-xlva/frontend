@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion'
 import { ReactNode, useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { motion } from 'framer-motion'
 
 interface Props {
   children: ReactNode

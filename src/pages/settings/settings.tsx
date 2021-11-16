@@ -1,5 +1,6 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
+
 import { Grid } from 'shared/ui'
 
 export const Settings = () => {
@@ -26,14 +27,14 @@ export const Settings = () => {
         <Form.Item
           label='Пароль'
           name='Password'
-          rules={[{ required: true, message: 'Введите пароль' }]}
+          rules={[{ required: true, message: `Введите пароль` }]}
         >
           <Input type='password' placeholder='Пароль' />
         </Form.Item>
         <Form.Item
           label='Новый пароль'
           name='New password'
-          rules={[{ required: true, message: 'Введите новый пароль' }]}
+          rules={[{ required: true, message: `Введите новый пароль` }]}
         >
           <Input type='password' placeholder='Новый пароль' />
         </Form.Item>

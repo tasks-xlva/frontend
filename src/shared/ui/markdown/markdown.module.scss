@@ -8,11 +8,11 @@
   }
 
   :global(.CodeMirror) {
-    border-radius: 0;
     border-top: 1px solid var(--border-color);
+    border-right: none;
     border-bottom: 1px solid var(--border-color);
     border-left: none;
-    border-right: none;
+    border-radius: 0;
   }
 }
 

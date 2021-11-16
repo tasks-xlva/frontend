@@ -1,4 +1,5 @@
 import { api, routes } from 'shared/api'
+
 import { updateTokens } from './update-tokens'
 
 export const isUserAuthorized = async () => {

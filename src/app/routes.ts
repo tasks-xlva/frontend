@@ -1,5 +1,5 @@
 import { ComponentClass, FunctionComponent } from 'react'
-import { PRIVATE_PATH, PUBLIC_PATH } from 'shared/config'
+
 import {
   Login,
   Signup,
@@ -13,6 +13,7 @@ import {
   Task,
   GroupEdit,
 } from 'pages'
+import { PRIVATE_PATH, PUBLIC_PATH } from 'shared/config'
 
 export type Routes = {
   path?: string

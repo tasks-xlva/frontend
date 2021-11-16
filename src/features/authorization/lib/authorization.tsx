@@ -1,6 +1,7 @@
 import { ReactNode, useEffect, useMemo, useState } from 'react'
-import { isUserAuthorized } from './is-user-authorized'
+
 import { AuthorizationContext } from './authorization-context'
+import { isUserAuthorized } from './is-user-authorized'
 
 interface Props {
   children: ReactNode

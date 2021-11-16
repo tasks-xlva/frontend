@@ -24,11 +24,18 @@
     "swr": "^1.0.1",
     "typescript": "^4.1.2"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "craco eject",
+    "eslint": "eslint src",
+    "stylelint": "stylelint src",
     "prepare": "husky install",
     "tools:dtsgen": "./get-backend-types.sh"
   },
@@ -52,8 +59,14 @@
   },
   "devDependencies": {
     "dtsgenerator": "^3.13.2",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
     "husky": "^7.0.4",
+    "lint-staged": "^12.0.2",
     "prettier": "^2.4.1",
-    "pretty-quick": "^3.1.1"
+    "stylelint": "^13.13.1",
+    "stylelint-config-css-modules": "^2.3.0",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-standard": "^22.0.0"
   }
 }

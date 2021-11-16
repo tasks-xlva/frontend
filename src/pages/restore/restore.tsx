@@ -1,5 +1,6 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
+
 import { PUBLIC_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
 
@@ -11,7 +12,7 @@ export const Restore = () => {
         <Form.Item
           label='Почта'
           name='email'
-          rules={[{ required: true, message: 'Введите почту' }]}
+          rules={[{ required: true, message: `Введите почту` }]}
         >
           <Input type='email' placeholder='Почта' />
         </Form.Item>
