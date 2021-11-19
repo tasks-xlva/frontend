@@ -1,7 +1,12 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import { ComponentClass, FunctionComponent } from 'react'
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom'
 
-import { Routes } from 'app/routes'
+export type Routes = {
+  path?: string
+  component: FunctionComponent | ComponentClass
+  default?: boolean
+}[]
 
 interface Props {
   routes: Routes

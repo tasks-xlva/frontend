@@ -3,16 +3,16 @@ import { useCallback } from 'react'
 
 import { obtainToken } from 'entities/users/api'
 import { updateTokens, useAuthorization } from 'features/authorization'
-import { useLoading } from 'shared/hooks'
+import { useIsLoading } from 'features/helpers/lib'
 
 export const useLogin = () => {
   const { setIsAuthorized } = useAuthorization()
-  const { start, finish, isLoading } = useLoading()
+  const { startLoading, finishLoading, isLoading } = useIsLoading()
 
   const handleLogin = useCallback(
     async (params: Parameters<typeof obtainToken>[`0`]) => {
       try {
-        start()
+        startLoading()
         const { data } = await obtainToken(params)
         updateTokens(data)
         setIsAuthorized(true)
@@ -23,10 +23,10 @@ export const useLogin = () => {
           description: `Неверный логин или пароль`,
         })
       } finally {
-        finish()
+        finishLoading()
       }
     },
-    [finish, setIsAuthorized, start],
+    [finishLoading, setIsAuthorized, startLoading],
   )
 
   return { handleLogin, isLoading }
