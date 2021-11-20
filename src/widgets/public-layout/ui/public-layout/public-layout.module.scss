@@ -12,6 +12,7 @@
 .logo {
   width: auto;
   height: 32px;
+  fill: var(--accent-color);
 }
 
 .drawer :global(.ant-drawer-wrapper-body) {
