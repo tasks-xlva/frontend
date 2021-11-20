@@ -14,3 +14,8 @@ export const useGroup = (id: number | string) => {
 
 export const createGroup = (values: Components.Schemas.GroupRequest) =>
   api.post<Components.Schemas.Group>(routes.groups, values)
+
+export const updateGroup = (
+  id: number | string,
+  values: Components.Schemas.GroupRequest,
+) => api.patch<Components.Schemas.Group>(routes.group(id), values)

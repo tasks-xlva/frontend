@@ -8,7 +8,7 @@ export const useAddGroup = () => {
   const history = useHistory()
 
   const handleAddGroup = useCallback(
-    async (values: Parameters<typeof createGroup>[0]) => {
+    async (values: Components.Schemas.GroupRequest) => {
       const { data } = await createGroup(values)
       history.push(generatePath(PRIVATE_PATH.GROUP, { groupId: data.id }))
     },
