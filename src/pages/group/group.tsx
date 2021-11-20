@@ -4,9 +4,9 @@ import { generatePath, useParams } from 'react-router-dom'
 
 import { useGroup } from 'entities/groups/api'
 import { StudentsList } from 'entities/groups/ui'
+import { SubjectsList } from 'entities/subjects/ui'
 import { PRIVATE_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
-import { LinkCard } from 'shared/ui/link-card/link-card'
 import { PrivateLayout } from 'widgets/private-layout'
 
 import styles from './group.module.scss'
@@ -28,8 +28,7 @@ export const Group = () => {
         />
       </div>
       <Typography.Title level={3}>Предметы</Typography.Title>
-      <LinkCard href=''>WEB</LinkCard>
-      <LinkCard href=''>Frond-end</LinkCard>
+      <SubjectsList subjects={group?.subjects} />
       <Button block>Добавить предмет</Button>
 
       <PrivateLayout.Aside>
