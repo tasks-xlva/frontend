@@ -13,7 +13,10 @@ export const TasksList = ({ tasks }: Props) => {
   return (
     <Grid>
       {tasks?.map((task) => (
-        <LinkCard href={generatePath(PRIVATE_PATH.TASK, { taskId: task.id })}>
+        <LinkCard
+          key={task.id}
+          href={generatePath(PRIVATE_PATH.TASK, { taskId: task.id })}
+        >
           <Typography.Title level={4}>{task.name}</Typography.Title>
           <Typography.Text type='secondary'>
             До {moment(task.deadline).format(`DD.mm.YY`)}
