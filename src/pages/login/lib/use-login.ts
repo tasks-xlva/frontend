@@ -17,13 +17,12 @@ export const useLogin = () => {
         updateTokens(data)
         setIsAuthorized(true)
       } catch (error) {
+        finishLoading()
         console.error(error)
         notification.error({
           message: `Ошибка входа`,
           description: `Неверный логин или пароль`,
         })
-      } finally {
-        finishLoading()
       }
     },
     [finishLoading, setIsAuthorized, startLoading],
