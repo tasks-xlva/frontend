@@ -1,7 +1,9 @@
 import { Button, DatePicker, Form, Typography, Upload } from 'antd'
-import { ComponentProps, useState } from 'react'
+import moment from 'moment'
+import { ComponentProps, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { useTask } from 'entities/tasks/api'
 import { Grid, Markdown } from 'shared/ui'
 
 const fileList: ComponentProps<typeof Upload>[`defaultFileList`] = [
@@ -22,11 +24,17 @@ const fileList: ComponentProps<typeof Upload>[`defaultFileList`] = [
 export const Task = () => {
   let { taskId } = useParams<{ taskId: string }>()
   const [isEditing, setIsEditing] = useState(false)
+  const { task } = useTask(taskId)
+  const [form] = Form.useForm()
+
+  useEffect(() => {
+    form.setFieldsValue(task)
+  }, [form, task])
 
   return (
     <Grid>
-      <Typography.Title level={2}>{taskId}</Typography.Title>
-      <Form layout='vertical'>
+      <Typography.Title level={2}>{task?.name}</Typography.Title>
+      <Form form={form} layout='vertical'>
         <Form.Item name='description'>
           <Markdown isEditing={isEditing} />
         </Form.Item>
@@ -36,7 +44,10 @@ export const Task = () => {
           </Button>
         </Form.Item>
         <Form.Item label='Дедлайн' name='deadline'>
-          <DatePicker placeholder='Укажите дедлайн' />
+          <DatePicker
+            format={(date) => moment(date).format(`DD.mm.YY`)}
+            placeholder='Укажите дедлайн'
+          />
         </Form.Item>
       </Form>
       <Typography.Title level={3}>Вложения</Typography.Title>
