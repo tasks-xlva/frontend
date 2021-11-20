@@ -117,3 +117,7 @@ h6.ant-typography,
 .ant-btn-link {
   border: none;
 }
+
+.ant-input::placeholder {
+  opacity: 0.5;
+}

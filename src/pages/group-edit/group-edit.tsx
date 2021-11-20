@@ -1,25 +1,11 @@
-import { Form, Input, Typography } from 'antd'
-import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { StudentsList, StudentModal } from 'entities/groups/ui'
-import { Grid } from 'shared/ui'
+import { useGroup } from 'entities/groups/api'
+import { GroupEditForm } from 'widgets/groups/ui'
 
 export const GroupEdit = () => {
   let { groupId } = useParams<{ groupId: string }>()
+  const { group } = useGroup(groupId)
 
-  const [id, setId] = useState<number | null>(null)
-
-  return (
-    <Grid>
-      <Typography.Title level={2}>{groupId}</Typography.Title>
-      <Form layout='vertical'>
-        <Form.Item label='Название'>
-          <Input placeholder='Название' />
-        </Form.Item>
-      </Form>
-      <StudentsList onUserClick={setId} />
-      <StudentModal id={id} onClose={() => setId(null)} />
-    </Grid>
-  )
+  return <GroupEditForm values={group} onSubmit={() => null} />
 }

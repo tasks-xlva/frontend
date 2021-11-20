@@ -1,5 +1,5 @@
 import { Button, Typography } from 'antd'
-import { generatePath } from 'react-router-dom'
+import { generatePath, Link } from 'react-router-dom'
 
 import { useGroups } from 'entities/groups/api'
 import { PRIVATE_PATH } from 'shared/config'
@@ -21,7 +21,9 @@ export const Groups = () => {
           {group.number}
         </LinkCard>
       ))}
-      <Button block>Создать группу</Button>
+      <Link to={PRIVATE_PATH.GROUP_ADD}>
+        <Button block>Создать группу</Button>
+      </Link>
     </Grid>
   )
 }
