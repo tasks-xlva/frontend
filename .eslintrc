@@ -16,7 +16,7 @@
       },
       "rules": {
         "import/order": [
-          "error",
+          "warn",
           {
             "groups": [
               "builtin",
@@ -33,7 +33,7 @@
             }
           }
         ],
-        "quotes": ["error", "backtick"]
+        "quotes": ["warn", "backtick"]
       }
     }
   ]
