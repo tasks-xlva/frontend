@@ -31,8 +31,8 @@
 
   .wrapper {
     display: grid;
-    grid-template-areas: 'n c' 'n a';
-    grid-template-columns: 200px 1fr;
+    grid-template-areas: 'n c a';
+    grid-template-columns: 200px 1fr 200px;
     width: 1024px;
     margin: auto;
   }
@@ -43,7 +43,7 @@
 
   .content {
     grid-area: c;
-    padding: 24px 24px 24px 0;
+    padding: 24px 0;
   }
 
   .aside {
@@ -59,13 +59,7 @@
   }
 
   .wrapper {
-    grid-template-areas: 'n c a';
     grid-template-columns: 262px 1fr 262px;
     width: 1224px;
-  }
-
-  .content {
-    grid-area: c;
-    padding: 24px 0;
   }
 }

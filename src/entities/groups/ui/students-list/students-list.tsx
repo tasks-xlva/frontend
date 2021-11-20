@@ -3,6 +3,8 @@ import { Dispatch } from 'react'
 
 import { Grid } from 'shared/ui'
 
+import styles from './students-list.module.scss'
+
 interface Props {
   onUserClick?: Dispatch<number>
 }
@@ -10,12 +12,14 @@ interface Props {
 const data = [
   {
     id: 111,
-    name: `Товарищ Тимофей`,
+    firstName: `Товарищ`,
+    lastName: `Тимофей`,
     extra: `Админ`,
   },
   {
     id: 112,
-    name: `Товарищ Матвей`,
+    firstName: `Товарищ`,
+    lastName: `Матвей`,
     extra: ``,
   },
 ]
@@ -33,7 +37,9 @@ export const StudentsList = ({ onUserClick }: Props) => {
             }
             onClick={() => onUserClick && onUserClick(item.id)}
           >
-            <Typography.Text>{item.name}</Typography.Text>
+            <Typography.Text className={styles.name}>
+              {item.firstName} {item.lastName.charAt(0)}.
+            </Typography.Text>
           </List.Item>
         )}
       />
