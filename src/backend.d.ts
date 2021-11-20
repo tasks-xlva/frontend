@@ -7,10 +7,22 @@ declare namespace Components {
     export interface FileRequest {
       file: string // binary
     }
+    export interface FlatSubject {
+      id: number
+      name: string
+      description?: string | null
+      image?: null | number
+    }
+    export interface FlatSubjectRequest {
+      name: string
+      description?: string | null
+      image?: null | number
+    }
     export interface Group {
       id: number
+      subjects?: FlatSubject[]
       number: string
-      subjects: Nested[]
+      uuid: string // uuid
     }
     export interface GroupMembership {
       id: number
@@ -23,7 +35,12 @@ declare namespace Components {
       role: RoleEnum
     }
     export interface GroupRequest {
+      subjects?: FlatSubjectRequest[]
       number: string
+    }
+    export interface JoinGroup {
+      group: number
+      role: `ADMIN` | `EDITOR` | `MEMBER`
     }
     export interface MyPassword {
       /**
@@ -48,25 +65,13 @@ declare namespace Components {
       lastName: string
       email: string // email
     }
-    export interface Nested {
-      id: number
-      name: string
-      description?: string | null
-      group: number
-      image?: null | number
-    }
-    export interface NestedRequest {
-      name: string
-      description?: string | null
-      group: number
-      image?: null | number
-    }
     export interface PatchedGroupMembershipRequest {
       group?: number
       user?: UserRequest
       role?: RoleEnum
     }
     export interface PatchedGroupRequest {
+      subjects?: FlatSubjectRequest[]
       number?: string
     }
     export interface PatchedMyPasswordRequest {
@@ -83,45 +88,45 @@ declare namespace Components {
     export interface PatchedSubjectRequest {
       name?: string
       description?: string | null
-      groupId?: number
-      image?: string | null // uri
+      group?: number
+      image?: null | number
     }
     export interface PatchedTaskRequest {
       name?: string
       description?: string
-      subjectId?: number
-      attachments?: string /* uri */[]
       deadline?: string | null // date-time
+      subject?: number
+      attachments?: number[]
     }
     export type RoleEnum = `ADMIN` | `EDITOR` | `MEMBER`
     export interface Subject {
       id: number
+      tasks: Task[]
       name: string
       description?: string | null
-      tasks: Task[]
-      groupId: number
-      image?: string | null // uri
+      group: number
+      image?: null | number
     }
     export interface SubjectRequest {
       name: string
       description?: string | null
-      groupId: number
-      image?: string | null // uri
+      group: number
+      image?: null | number
     }
     export interface Task {
       id: number
       name: string
       description: string
-      subjectId: number
-      attachments?: string /* uri */[]
       deadline?: string | null // date-time
+      subject: number
+      attachments?: number[]
     }
     export interface TaskRequest {
       name: string
       description: string
-      subjectId: number
-      attachments?: string /* uri */[]
       deadline?: string | null // date-time
+      subject: number
+      attachments?: number[]
     }
     export interface TokenObtainPair {
       access: string
@@ -179,45 +184,9 @@ declare namespace Paths {
       export type $201 = Components.Schemas.Group
     }
   }
-  namespace GroupsDestroy {
-    namespace Parameters {
-      export type Id = number
-    }
-    export interface PathParameters {
-      id: Parameters.Id
-    }
-    namespace Responses {
-      export interface $204 {}
-    }
-  }
   namespace GroupsList {
     namespace Responses {
       export type $200 = Components.Schemas.Group[]
-    }
-  }
-  namespace GroupsMembershipsCreate {
-    namespace Parameters {
-      export type GroupPk = number
-    }
-    export interface PathParameters {
-      group_pk: Parameters.GroupPk
-    }
-    export type RequestBody = Components.Schemas.GroupMembershipRequest
-    namespace Responses {
-      export type $201 = Components.Schemas.GroupMembership
-    }
-  }
-  namespace GroupsMembershipsDestroy {
-    namespace Parameters {
-      export type GroupPk = number
-      export type Id = number
-    }
-    export interface PathParameters {
-      group_pk: Parameters.GroupPk
-      id: Parameters.Id
-    }
-    namespace Responses {
-      export interface $204 {}
     }
   }
   namespace GroupsMembershipsList {
@@ -305,6 +274,17 @@ declare namespace Paths {
     export type RequestBody = Components.Schemas.GroupRequest
     namespace Responses {
       export type $200 = Components.Schemas.Group
+    }
+  }
+  namespace JoinCreate {
+    namespace Parameters {
+      export type Uuid = string // uuid
+    }
+    export interface PathParameters {
+      uuid: Parameters.Uuid /* uuid */
+    }
+    namespace Responses {
+      export type $201 = Components.Schemas.JoinGroup
     }
   }
   namespace SubjectsCreate {
