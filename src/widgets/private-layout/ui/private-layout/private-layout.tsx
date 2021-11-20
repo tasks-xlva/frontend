@@ -20,17 +20,17 @@ export const PrivateLayout = ({ children }: Props) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
       <PageHeader
-        className={styles.header}
         backIcon={<MenuOutlined />}
-        onBack={!isDesktop ? show : undefined}
-        title={<Logo className={styles.logo} />}
+        className={styles.header}
         extra={isDesktop && <Extra />}
+        title={<Logo className={styles.logo} />}
+        onBack={!isDesktop ? show : undefined}
       />
       <div className={styles.wrapper}>
         {isDesktop ? (
@@ -38,8 +38,8 @@ export const PrivateLayout = ({ children }: Props) => {
         ) : (
           <MobileNavigation
             className={styles.navigation}
-            onClose={hide}
             visible={isVisible}
+            onClose={hide}
           />
         )}
         <main className={styles.content}>{children}</main>

@@ -40,7 +40,7 @@ export const Task = () => {
         </Form.Item>
       </Form>
       <Typography.Title level={3}>Вложения</Typography.Title>
-      <Upload action='' listType='picture-card' defaultFileList={fileList}>
+      <Upload action='' defaultFileList={fileList} listType='picture-card'>
         {`Загрузить`}
       </Upload>
     </Grid>

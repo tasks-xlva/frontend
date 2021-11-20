@@ -15,14 +15,14 @@ export const PublicLayout = (props: Props) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      initial={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
     >
       <PageHeader
-        title={<Logo className={styles.logo} />}
         className={styles.header}
+        title={<Logo className={styles.logo} />}
       />
       <main className={styles.wrapper}>{children}</main>
     </motion.div>

@@ -33,6 +33,14 @@
             }
           }
         ],
+        "react/jsx-sort-props": [
+          "warn",
+          {
+            "callbacksLast": true,
+            "shorthandFirst": true,
+            "reservedFirst": true
+          }
+        ],
         "quotes": ["warn", "backtick"]
       }
     }

@@ -14,11 +14,11 @@ export const Restore = () => {
           name='email'
           rules={[{ required: true, message: `Введите почту` }]}
         >
-          <Input type='email' placeholder='Почта' />
+          <Input placeholder='Почта' type='email' />
         </Form.Item>
         <Form.Item>
           <Link to=''>
-            <Button type='primary' block>
+            <Button block type='primary'>
               Сбросить
             </Button>
           </Link>

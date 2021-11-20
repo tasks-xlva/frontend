@@ -18,17 +18,17 @@ export const Routing = ({ routes }: Props) => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <Switch location={location} key={location.pathname}>
+      <Switch key={location.pathname} location={location}>
         <Redirect
           from='/:url*(/+)'
           to={window.location.pathname.slice(0, -1)}
         />
         {routes.map((route) => (
-          <Route exact key={route.path} path={route.path}>
+          <Route key={route.path} exact path={route.path}>
             <motion.div
-              initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
               transition={{ duration: 0.15 }}
             >
               <route.component />
