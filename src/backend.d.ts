@@ -91,6 +91,7 @@ declare namespace Components {
       description?: string
       subjectId?: number
       attachments?: string /* uri */[]
+      deadline?: string | null // date-time
     }
     export type RoleEnum = `ADMIN` | `EDITOR` | `MEMBER`
     export interface Subject {
@@ -113,12 +114,14 @@ declare namespace Components {
       description: string
       subjectId: number
       attachments?: string /* uri */[]
+      deadline?: string | null // date-time
     }
     export interface TaskRequest {
       name: string
       description: string
       subjectId: number
       attachments?: string /* uri */[]
+      deadline?: string | null // date-time
     }
     export interface TokenObtainPair {
       access: string
