@@ -6,11 +6,15 @@ export enum PUBLIC_PATH {
 
 export enum PRIVATE_PATH {
   SETTINGS = `/settings`,
+
   GROUPS = `/groups`,
-  SUBJECTS = `/subjects`,
+  GROUP_ADD = `/groups/add`,
   GROUP = `/groups/:groupId`,
   GROUP_EDIT = `/groups/:groupId/edit`,
+
+  SUBJECTS = `/subjects`,
   SUBJECT = `/subjects/:subjectId`,
+
   TASKS = `/tasks`,
   TASK = `/task/:taskId`,
 }

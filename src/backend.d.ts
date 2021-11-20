@@ -14,14 +14,13 @@ declare namespace Components {
     }
     export interface GroupMembership {
       id: number
+      user: User
       role: RoleEnum
-      group: number
-      user: number
     }
     export interface GroupMembershipRequest {
-      role: RoleEnum
       group: number
-      user: number
+      user: UserRequest
+      role: RoleEnum
     }
     export interface GroupRequest {
       number: string
@@ -63,9 +62,9 @@ declare namespace Components {
       image?: null | number
     }
     export interface PatchedGroupMembershipRequest {
-      role?: RoleEnum
       group?: number
-      user?: number
+      user?: UserRequest
+      role?: RoleEnum
     }
     export interface PatchedGroupRequest {
       number?: string

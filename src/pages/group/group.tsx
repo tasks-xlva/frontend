@@ -2,6 +2,7 @@ import { EditOutlined, ShareAltOutlined } from '@ant-design/icons'
 import { Button, Typography } from 'antd'
 import { generatePath, useParams } from 'react-router-dom'
 
+import { useGroup } from 'entities/groups/api'
 import { StudentsList } from 'entities/groups/ui'
 import { PRIVATE_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
@@ -12,11 +13,12 @@ import styles from './group.module.scss'
 
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()
+  const { group } = useGroup(groupId)
 
   return (
     <Grid>
       <div className={styles.header}>
-        <Typography.Title level={2}>{groupId}</Typography.Title>
+        <Typography.Title level={2}>{group?.number}</Typography.Title>
         <Button icon={<ShareAltOutlined />} size='middle' type='primary' />
         <Button
           href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId: groupId })}

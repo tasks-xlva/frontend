@@ -1,4 +1,5 @@
 export * from './group/group'
+export * from './group-add/group-add'
 export * from './group-edit/group-edit'
 export * from './groups/groups'
 export * from './login/login'
