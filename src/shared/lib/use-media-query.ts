@@ -1,21 +1,19 @@
 import { useState, useEffect } from 'react'
 
-const query = `(min-width: 1024px)`
-
-const useIsDesktop = () => {
-  const [isDesktop, setIsDesktop] = useState(false)
+const useMediaQuery = (query: string) => {
+  const [isMatch, setIsMatch] = useState(false)
 
   useEffect(() => {
     const media = matchMedia(query)
     const listener = () => {
-      setIsDesktop(media.matches)
+      setIsMatch(media.matches)
     }
     media.addEventListener(`change`, listener)
     listener()
     return () => media.removeEventListener(`change`, listener)
-  }, [])
+  }, [query])
 
-  return { isDesktop }
+  return { isMatch }
 }
 
-export { useIsDesktop }
+export { useMediaQuery }

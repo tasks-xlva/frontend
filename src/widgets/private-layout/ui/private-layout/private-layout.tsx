@@ -3,9 +3,10 @@ import { PageHeader } from 'antd'
 import { motion } from 'framer-motion'
 import { ReactNode } from 'react'
 
+import { useIsDesktop, useIsVisible } from 'features/helpers/lib'
 import { Logo } from 'shared/assets'
-import { useIsDesktop, useVisible } from 'shared/hooks'
-import styles from 'widgets/private-layout/ui/private-layout/private-layout.module.scss'
+
+import styles from './private-layout.module.scss'
 
 import { DesktopNavigation, MobileNavigation, Aside, Extra } from '..'
 
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const PrivateLayout = ({ children }: Props) => {
-  const { show, hide, isVisible } = useVisible()
+  const { show, hide, isVisible } = useIsVisible()
   const { isDesktop } = useIsDesktop()
 
   return (

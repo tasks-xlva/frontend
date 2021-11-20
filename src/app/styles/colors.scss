@@ -1,3 +1,11 @@
 :root {
+  --accent-color: #272727;
   --border-color: #f0f0f0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --border-color: #434343;
+    --accent-color: #177ddc;
+  }
 }
