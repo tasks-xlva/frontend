@@ -1,4 +1,3 @@
-import 'antd/dist/antd.variable.min.css'
 import { ConfigProvider } from 'antd'
 import { AxiosRequestConfig } from 'axios'
 import React from 'react'
@@ -9,8 +8,6 @@ import { SWRConfig } from 'swr'
 import { App } from 'app'
 import { Authorization } from 'features/authorization'
 import { api } from 'shared/api'
-
-ConfigProvider.config({ theme: { primaryColor: `#272727` } })
 
 render(
   <Authorization>

@@ -21,3 +21,87 @@ a.ant-typography,
 .ant-form-large .ant-form-item-label > label {
   height: auto;
 }
+
+body {
+  color: var(--text-color);
+  background: var(--body-color);
+}
+
+.ant-typography,
+h1.ant-typography,
+h2.ant-typography,
+h3.ant-typography,
+h4.ant-typography,
+h5.ant-typography,
+h6.ant-typography,
+.ant-menu,
+.ant-form-item,
+.ant-upload-list,
+.ant-picker-header button,
+.ant-picker-content th,
+.ant-picker-cell,
+.ant-form-item-label > label {
+  color: var(--text-color);
+}
+
+.ant-typography.ant-typography-secondary,
+.ant-picker-suffix {
+  color: var(--secondary);
+}
+
+.ant-btn:not(.ant-btn-primary),
+.ant-upload,
+.ant-upload.ant-upload-select-picture-card,
+.ant-picker,
+.ant-picker-input > input,
+.ant-upload-list-picture-card .ant-upload-list-item,
+.ant-input {
+  color: var(--text-color);
+  background: transparent;
+  border-color: var(--border-color);
+
+  &:hover {
+    background: transparent;
+  }
+}
+
+.ant-picker-header,
+.ant-picker-panel,
+.ant-picker-panel-container,
+.ant-picker-panel .ant-picker-footer,
+.ant-popover-inner {
+  color: var(--text-color);
+  background: var(--background-color);
+  border-color: var(--border-color);
+}
+
+.ant-picker-header button,
+.ant-picker-content th,
+.ant-picker-cell {
+  &:hover {
+    color: var(--text-color);
+  }
+}
+
+.ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) {
+  .ant-picker-cell-inner {
+    background: var(--hover-color);
+  }
+}
+
+.ant-picker-clear {
+  color: var(--text-color) !important;
+  background: var(--body-color);
+}
+
+.ant-list-split .ant-list-item {
+  border-color: var(--border-color);
+}
+
+.ant-popover-arrow-content {
+  background: var(--background-color);
+}
+
+.ant-btn-link {
+  border: none;
+}

@@ -1,4 +1,4 @@
-import 'app/styles/index.scss'
+import './styles/index.scss'
 import React from 'react'
 
 import { useAuthorization } from 'features/authorization'
