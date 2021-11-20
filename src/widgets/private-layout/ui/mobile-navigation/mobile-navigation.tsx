@@ -24,9 +24,9 @@ export const MobileNavigation = ({ onClose, visible, className }: Props) => {
       className={classNames(styles.drawer, className)}
       placement='left'
       title={`${myself?.firstName} ${myself?.lastName}`}
-      onClose={onClose}
       visible={visible}
       width='100%'
+      onClose={onClose}
     >
       {pages.map(({ title, link }) => (
         <Link key={link} to={link} onClick={onClose}>
@@ -35,8 +35,8 @@ export const MobileNavigation = ({ onClose, visible, className }: Props) => {
       ))}
       <Typography.Title
         className={styles.logout}
-        type='danger'
         level={3}
+        type='danger'
         onClick={handleLogout}
       >
         Выход

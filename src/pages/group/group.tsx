@@ -17,12 +17,12 @@ export const Group = () => {
     <Grid>
       <div className={styles.header}>
         <Typography.Title level={2}>{groupId}</Typography.Title>
-        <Button type='primary' size='middle' icon={<ShareAltOutlined />} />
+        <Button icon={<ShareAltOutlined />} size='middle' type='primary' />
         <Button
-          type='primary'
-          size='middle'
-          icon={<EditOutlined />}
           href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId: groupId })}
+          icon={<EditOutlined />}
+          size='middle'
+          type='primary'
         />
       </div>
       <Typography.Title level={3}>Предметы</Typography.Title>

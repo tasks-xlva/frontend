@@ -28,10 +28,10 @@ export const StudentsList = ({ onUserClick }: Props) => {
         dataSource={data}
         renderItem={(item) => (
           <List.Item
-            onClick={() => onUserClick && onUserClick(item.id)}
             extra={
               <Typography.Text type='warning'>{item.extra}</Typography.Text>
             }
+            onClick={() => onUserClick && onUserClick(item.id)}
           >
             <Typography.Text>{item.name}</Typography.Text>
           </List.Item>

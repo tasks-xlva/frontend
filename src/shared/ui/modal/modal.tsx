@@ -24,11 +24,11 @@ export const Modal = ({
     <>
       <AntModal
         {...rest}
-        closable={false}
         className={classNames(styles.modal, className)}
+        closable={false}
         footer={false}
       >
-        <Typography.Title level={4} className={styles.title}>
+        <Typography.Title className={styles.title} level={4}>
           {title}
         </Typography.Title>
         {children}

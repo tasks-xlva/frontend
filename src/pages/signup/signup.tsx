@@ -44,17 +44,17 @@ export const Signup = () => {
           name='password'
           rules={[{ required: true, message: `Введите пароль` }]}
         >
-          <Input type='password' placeholder='Пароль' />
+          <Input placeholder='Пароль' type='password' />
         </Form.Item>
         <Form.Item
           label='Повторите пароль'
           name='repeat-password'
           rules={[{ required: true, message: `Введите пароль` }]}
         >
-          <Input type='password' placeholder='Повторите пароль' />
+          <Input placeholder='Повторите пароль' type='password' />
         </Form.Item>
         <Form.Item>
-          <Button type='primary' block>
+          <Button block type='primary'>
             Зарегистрироваться
           </Button>
         </Form.Item>

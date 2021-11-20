@@ -19,10 +19,10 @@ export const StudentModal = ({ id, onClose }: Props) => {
   return (
     <Modal title={id} visible={Boolean(id)} onCancel={onClose}>
       <Radio.Group
-        className={styles.radios}
-        options={options}
-        optionType='button'
         buttonStyle='solid'
+        className={styles.radios}
+        optionType='button'
+        options={options}
       />
     </Modal>
   )

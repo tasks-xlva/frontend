@@ -22,8 +22,8 @@ export const Extra = () => {
 
   return (
     <>
-      <Popover placement='bottom' content={menu} trigger='click'>
-        <Typography.Title level={5} className={styles.title}>
+      <Popover content={menu} placement='bottom' trigger='click'>
+        <Typography.Title className={styles.title} level={5}>
           {myself?.firstName} {myself?.lastName}
         </Typography.Title>
       </Popover>
