@@ -1,25 +1,25 @@
-import { Input, Typography } from 'antd'
-import { generatePath, useParams } from 'react-router-dom'
+import { Button, Typography } from 'antd'
+import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-import { PRIVATE_PATH } from 'shared/config'
-import { Grid, LinkCard } from 'shared/ui'
+import { useSubject } from 'entities/subjects/api'
+import { TasksList } from 'entities/tasks/ui'
+import { Grid, Markdown } from 'shared/ui'
 
 export const Subject = () => {
   let { subjectId } = useParams<{ subjectId: string }>()
+  const { subject } = useSubject(subjectId)
+  const [isEditing, setIsEditing] = useState(false)
 
   return (
     <Grid>
       <Typography.Title level={2}>{subjectId}</Typography.Title>
-      <Input.TextArea />
+      <Markdown isEditing={isEditing} />
+      <Button block onClick={() => setIsEditing(!isEditing)}>
+        {isEditing ? `Сохранить` : `Редактировать`} описание
+      </Button>
       <Typography.Title level={3}>Задания</Typography.Title>
-      <LinkCard href={generatePath(PRIVATE_PATH.TASK, { taskId: 1 })}>
-        <Typography.Title level={4}>Лаба 1</Typography.Title>
-        <Typography.Text type='secondary'>До 18.10.21</Typography.Text>
-      </LinkCard>
-      <LinkCard href={generatePath(PRIVATE_PATH.TASK, { taskId: 2 })}>
-        <Typography.Title level={4}>Лаба 2</Typography.Title>
-        <Typography.Text type='secondary'>До 18.12.21</Typography.Text>
-      </LinkCard>
+      <TasksList tasks={subject?.tasks} />
     </Grid>
   )
 }
