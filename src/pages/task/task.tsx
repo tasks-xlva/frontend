@@ -45,7 +45,7 @@ export const Task = () => {
         </Form.Item>
         <Form.Item label='Дедлайн' name='deadline'>
           <DatePicker
-            format={(date) => moment(date).format(`DD.mm.YY`)}
+            format={(date) => moment(date).format(`DD.MM.YY`)}
             placeholder='Укажите дедлайн'
           />
         </Form.Item>
