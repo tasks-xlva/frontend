@@ -16,7 +16,7 @@ export const TasksList = ({ tasks }: Props) => {
         <LinkCard href={generatePath(PRIVATE_PATH.TASK, { taskId: task.id })}>
           <Typography.Title level={4}>{task.name}</Typography.Title>
           <Typography.Text type='secondary'>
-            До {moment(task.deadline).format(`DD.mm.YY`)}
+            До {moment(task.deadline).format(`DD.MM.YY`)}
           </Typography.Text>
         </LinkCard>
       ))}
