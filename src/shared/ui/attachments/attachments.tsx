@@ -21,12 +21,16 @@ export const Attachments = ({ value, onChange }: Props) => {
     try {
       const formData = new FormData()
       formData.append(`file`, file)
-      const { data } = await api.post(routes.files, formData, {
-        onUploadProgress: onProgress,
-      })
+      const { data } = await api.post<Components.Schemas.File>(
+        routes.files,
+        formData,
+        {
+          onUploadProgress: onProgress,
+        },
+      )
       console.log(onSuccess, data)
       if (onSuccess) {
-        onSuccess(data.file)
+        onSuccess(data)
       }
     } catch (error: any) {
       if (onError) {
@@ -36,12 +40,19 @@ export const Attachments = ({ value, onChange }: Props) => {
   }, [])
 
   const handleChange = useCallback<
-    Exclude<ComponentProps<typeof Upload>[`onChange`], undefined>
+    (
+      event: Pick<
+        Parameters<
+          Exclude<ComponentProps<typeof Upload>[`onChange`], undefined>
+        >[0],
+        `fileList`
+      >,
+    ) => void
   >(
     ({ fileList }) => {
       setFileList(fileList)
       if (onChange) {
-        onChange(fileList.map((file) => file.response))
+        onChange(fileList.map((file) => file.response.id))
       }
     },
     [onChange],
@@ -49,16 +60,17 @@ export const Attachments = ({ value, onChange }: Props) => {
 
   useEffect(() => {
     if (!fileList?.length) {
-      setFileList(
-        value?.map(({ file }) => ({
-          url: file,
-          uid: file,
-          name: file,
-          response: file,
-        })),
-      )
+      handleChange({
+        fileList:
+          value?.map(({ file }) => ({
+            url: file,
+            uid: file,
+            name: file,
+            response: file,
+          })) || [],
+      })
     }
-  }, [fileList?.length, value])
+  }, [fileList?.length, handleChange, value])
 
   return (
     <Upload

@@ -1,6 +1,6 @@
-import { Button, DatePicker, Form, Typography, Upload } from 'antd'
+import { Button, DatePicker, Form, Typography } from 'antd'
 import moment from 'moment'
-import { ComponentProps, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useTask } from 'entities/tasks/api'
