@@ -15,4 +15,5 @@ export const routes = {
 
   users: `/users`,
   me: `/users/me`,
+  files: `/files`
 }
