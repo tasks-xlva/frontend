@@ -1,10 +1,12 @@
+// TODO переделать весь компонент господи какой же это кал
+
 import { Upload } from 'antd'
 import { ComponentProps, useCallback, useEffect, useState } from 'react'
 
 import { api, routes } from 'shared/api'
 
 interface Props {
-  value?: string[]
+  value?: Components.Schemas.File[]
   onChange?: (value: string[]) => void
 }
 
@@ -48,7 +50,12 @@ export const Attachments = ({ value, onChange }: Props) => {
   useEffect(() => {
     if (!fileList?.length) {
       setFileList(
-        value?.map((url) => ({ url, uid: url, name: url, response: url })),
+        value?.map(({ file }) => ({
+          url: file,
+          uid: file,
+          name: file,
+          response: file,
+        })),
       )
     }
   }, [fileList?.length, value])
@@ -60,7 +67,7 @@ export const Attachments = ({ value, onChange }: Props) => {
       listType='picture-card'
       onChange={handleChange}
     >
-      {`Загрузить`}
+      Загрузить
     </Upload>
   )
 }
