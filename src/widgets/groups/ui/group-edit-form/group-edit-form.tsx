@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 
 import { StudentModal, StudentsList } from 'entities/groups/ui'
 import { Grid } from 'shared/ui'
+import { PrivateLayout } from 'widgets/private-layout'
 
 interface Props {
   onSubmit: (values: Components.Schemas.GroupRequest) => void
@@ -33,10 +34,10 @@ export const GroupEditForm = ({ onSubmit, values }: Props) => {
         </Form.Item>
       </Form>
       {values && (
-        <>
+        <PrivateLayout.Aside>
           <StudentsList onUserClick={setId} />
           <StudentModal id={id} onClose={() => setId(null)} />
-        </>
+        </PrivateLayout.Aside>
       )}
     </Grid>
   )
