@@ -12,6 +12,7 @@
     "antd": "4.17.0",
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
+    "copy-to-clipboard": "^3.3.1",
     "easymde": "^2.15.0",
     "framer-motion": "^5.3.0",
     "moment": "^2.29.1",
