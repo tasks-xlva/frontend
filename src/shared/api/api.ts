@@ -6,7 +6,6 @@ export const baseURL = `https://tasks.api.xlvn.ru/v1`
 export const api = axios.create({ baseURL })
 
 api.interceptors.response.use(undefined, (error) => {
-  console.log(error.response)
   notification.error({
     message: `Ошибка запроса`,
     description: Object.entries(error.response.data).map(
