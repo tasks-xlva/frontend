@@ -15,6 +15,12 @@
         }
       },
       "rules": {
+        "no-console": [
+          "warn",
+          {
+            "allow": ["error"]
+          }
+        ],
         "import/order": [
           "warn",
           {

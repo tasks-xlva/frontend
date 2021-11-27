@@ -28,7 +28,6 @@ export const Attachments = ({ value, onChange }: Props) => {
           onUploadProgress: onProgress,
         },
       )
-      console.log(onSuccess, data)
       if (onSuccess) {
         onSuccess(data)
       }
