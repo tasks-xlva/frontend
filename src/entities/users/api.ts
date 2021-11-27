@@ -10,3 +10,6 @@ export const useMyself = () => {
 
   return { myself }
 }
+
+export const createUser = (values: Components.Schemas.UserRequest) =>
+  api.post<Components.Schemas.User>(routes.users, values)
