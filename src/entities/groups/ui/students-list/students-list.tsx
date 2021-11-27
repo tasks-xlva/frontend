@@ -1,6 +1,8 @@
 import { List, Typography } from 'antd'
 import { Dispatch } from 'react'
+import {useParams} from "react-router-dom";
 
+import {useStudents} from "entities/groups/api";
 import { Grid } from 'shared/ui'
 
 import styles from './students-list.module.scss'
@@ -9,36 +11,25 @@ interface Props {
   onUserClick?: Dispatch<number>
 }
 
-const data = [
-  {
-    id: 111,
-    firstName: `Товарищ`,
-    lastName: `Тимофей`,
-    extra: `Админ`,
-  },
-  {
-    id: 112,
-    firstName: `Товарищ`,
-    lastName: `Матвей`,
-    extra: ``,
-  },
-]
-
 export const StudentsList = ({ onUserClick }: Props) => {
+  let { groupId } = useParams<{ groupId: string }>()
+  const { students } = useStudents(groupId)
+  
   return (
     <Grid>
       <Typography.Title level={3}>Студенты</Typography.Title>
       <List
-        dataSource={data}
+        dataSource={students}
         renderItem={(item) => (
           <List.Item
             extra={
-              <Typography.Text type='warning'>{item.extra}</Typography.Text>
+              item.role === `ADMIN` && 
+              <Typography.Text type='warning'>Админ</Typography.Text>
             }
             onClick={() => onUserClick && onUserClick(item.id)}
           >
             <Typography.Text className={styles.name}>
-              {item.firstName} {item.lastName.charAt(0)}.
+              {item.user.firstName} {item.user.lastName.charAt(0)}.
             </Typography.Text>
           </List.Item>
         )}
