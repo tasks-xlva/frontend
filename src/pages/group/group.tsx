@@ -21,15 +21,9 @@ export const Group = () => {
     <Grid>
       <div className={styles.header}>
         <Typography.Title level={2}>{group?.number}</Typography.Title>
-        <Button
-          icon={
-            <ShareOrCopy
-              title={`Вступить в группу ${group?.number}`}
-              url={group && `${baseURL}${routes.join(group?.uuid)}`}
-            />
-          }
-          size='middle'
-          type='primary'
+        <ShareOrCopy
+          title={`Вступить в группу ${group?.number}`}
+          url={group && `${baseURL}${routes.join(group?.uuid)}`}
         />
         <Button
           href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId: groupId })}
