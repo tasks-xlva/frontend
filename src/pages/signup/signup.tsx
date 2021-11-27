@@ -40,6 +40,7 @@ export const Signup = () => {
           <Input placeholder='Логин' />
         </Form.Item>
         <Form.Item
+          hasFeedback
           label='Пароль'
           name='password'
           rules={[{ required: true, message: `Введите пароль` }]}
@@ -47,9 +48,18 @@ export const Signup = () => {
           <Input placeholder='Пароль' type='password' />
         </Form.Item>
         <Form.Item
+          hasFeedback
+          dependencies={[`password`]}
           label='Повторите пароль'
-          name='repeat-password'
-          rules={[{ required: true, message: `Введите пароль` }]}
+          name='Confirm Password'
+          rules={[{ required: true, message: `Введите пароль` }, ({ getFieldValue }) => ({
+            validator(_, value) {
+              if (!value || getFieldValue(`password`) === value) {
+                return Promise.resolve()
+              }
+              return  Promise.reject(new Error(`Пароли должны совпадать!`))
+            }
+          })]}
         >
           <Input placeholder='Повторите пароль' type='password' />
         </Form.Item>
