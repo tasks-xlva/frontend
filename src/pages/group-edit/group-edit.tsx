@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 import { useGroup } from 'entities/groups/api'
-import { useEditGroup } from 'pages/group-edit/lib/use-edit-group'
+import { useEditGroup } from 'pages/group-edit/lib'
 import { GroupEditForm } from 'widgets/groups/ui'
 
 export const GroupEdit = () => {

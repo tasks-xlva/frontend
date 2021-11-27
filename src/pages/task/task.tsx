@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useTask } from 'entities/tasks/api'
+import { useDeleteTask } from 'pages/task/lib'
 import { Attachments, Grid, Markdown } from 'shared/ui'
 
 export const Task = () => {
   let { taskId } = useParams<{ taskId: string }>()
-  const [isEditing, setIsEditing] = useState(false)
+  const [isEditingDescription, setIsEditingDescription] = useState(false)
   const { task } = useTask(taskId)
+  const { handleDeleteTask } = useDeleteTask(taskId)
   const [form] = Form.useForm()
 
   useEffect(() => {
@@ -21,11 +23,14 @@ export const Task = () => {
       <Typography.Title level={2}>{task?.name}</Typography.Title>
       <Form form={form} layout='vertical'>
         <Form.Item name='description'>
-          <Markdown isEditing={isEditing} />
+          <Markdown isEditing={isEditingDescription} />
         </Form.Item>
         <Form.Item>
-          <Button block onClick={() => setIsEditing(!isEditing)}>
-            {isEditing ? `Сохранить` : `Редактировать`} описание
+          <Button
+            block
+            onClick={() => setIsEditingDescription(!isEditingDescription)}
+          >
+            {isEditingDescription ? `Сохранить` : `Редактировать`} описание
           </Button>
         </Form.Item>
         <Form.Item label='Дедлайн' name='deadline'>
@@ -38,6 +43,13 @@ export const Task = () => {
         <Form.Item name='attachments'>
           <Attachments />
         </Form.Item>
+        {task && (
+          <Form.Item>
+            <Button block danger onClick={handleDeleteTask}>
+              Удалить
+            </Button>
+          </Form.Item>
+        )}
       </Form>
     </Grid>
   )
