@@ -59,7 +59,7 @@ export const Attachments = ({ value, onChange }: Props) => {
   )
 
   useEffect(() => {
-    if (!fileList?.length) {
+    if (!fileList) {
       handleChange({
         fileList:
           value?.map(({ file }) => ({
@@ -70,7 +70,7 @@ export const Attachments = ({ value, onChange }: Props) => {
           })) || [],
       })
     }
-  }, [fileList?.length, handleChange, value])
+  }, [fileList, handleChange, value])
 
   return (
     <Upload
