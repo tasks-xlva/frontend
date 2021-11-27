@@ -121,6 +121,14 @@ declare namespace Components {
       subject: number
       attachments?: number[]
     }
+    export interface TaskListRetrieve {
+      id: number
+      attachments: File[] | null
+      name: string
+      description: string
+      deadline?: string | null // date-time
+      subject: number
+    }
     export interface TaskRequest {
       name: string
       description: string
@@ -363,7 +371,7 @@ declare namespace Paths {
   }
   namespace TasksList {
     namespace Responses {
-      export type $200 = Components.Schemas.Task[]
+      export type $200 = Components.Schemas.TaskListRetrieve[]
     }
   }
   namespace TasksPartialUpdate {
@@ -386,7 +394,7 @@ declare namespace Paths {
       id: Parameters.Id
     }
     namespace Responses {
-      export type $200 = Components.Schemas.Task
+      export type $200 = Components.Schemas.TaskListRetrieve
     }
   }
   namespace TasksUpdate {

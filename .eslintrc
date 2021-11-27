@@ -41,7 +41,8 @@
             "reservedFirst": true
           }
         ],
-        "quotes": ["warn", "backtick"]
+        "quotes": ["warn", "backtick"],
+        "react/jsx-key": "warn"
       }
     }
   ]

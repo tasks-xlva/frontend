@@ -54,7 +54,7 @@ h6.ant-typography,
 .ant-upload.ant-upload-select-picture-card,
 .ant-picker,
 .ant-picker-input > input,
-.ant-upload-list-picture-card .ant-upload-list-item,
+.ant-upload-list .ant-upload-list-item:not(.ant-upload-list-item-error),
 .ant-input {
   color: var(--text-color);
   background: transparent;
