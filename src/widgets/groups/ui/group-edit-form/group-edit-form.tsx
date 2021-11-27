@@ -1,5 +1,5 @@
 import { Button, Form, Input, Typography } from 'antd'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { StudentModal, StudentsList } from 'entities/groups/ui'
 import { Grid } from 'shared/ui'
@@ -13,6 +13,8 @@ interface Props {
 export const GroupEditForm = ({ onSubmit, values }: Props) => {
   const [id, setId] = useState<number | null>(null)
   const [form] = Form.useForm()
+
+  const isNew = useMemo(() => values, [values])
 
   useEffect(() => {
     form.setFieldsValue(values)
@@ -33,7 +35,7 @@ export const GroupEditForm = ({ onSubmit, values }: Props) => {
           </Button>
         </Form.Item>
       </Form>
-      {values && (
+      {isNew && (
         <PrivateLayout.Aside>
           <StudentsList onUserClick={setId} />
           <StudentModal id={id} onClose={() => setId(null)} />
