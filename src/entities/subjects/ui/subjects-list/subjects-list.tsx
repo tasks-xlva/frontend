@@ -13,6 +13,7 @@ export const SubjectsList = ({ subjects }: Props) => {
     <Grid>
       {subjects?.map((subject) => (
         <LinkCard
+          key={subject.id}
           href={generatePath(PRIVATE_PATH.SUBJECT, { subjectId: subject.id })}
         >
           <Typography.Title level={4}>{subject.name}</Typography.Title>
