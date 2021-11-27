@@ -12,6 +12,8 @@ export enum PRIVATE_PATH {
   GROUP = `/groups/:groupId`,
   GROUP_EDIT = `/groups/:groupId/edit`,
 
+  JOIN_GROUP = `/groups/join/:uuid`,
+
   SUBJECTS = `/subjects`,
   SUBJECT = `/subjects/:subjectId`,
 

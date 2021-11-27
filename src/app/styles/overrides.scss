@@ -40,7 +40,8 @@ h6.ant-typography,
 .ant-picker-header button,
 .ant-picker-content th,
 .ant-picker-cell,
-.ant-form-item-label > label {
+.ant-form-item-label > label,
+.ant-result-title {
   color: var(--text-color);
 }
 
@@ -111,10 +112,14 @@ h6.ant-typography,
 }
 
 .ant-input-affix-wrapper,
-.ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
-.ant-form-item-has-error :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
-.ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
-.ant-form-item-has-error :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper,
+.ant-form-item-has-error
+  :not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover,
+.ant-form-item-has-error
+  :not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
+.ant-form-item-has-error
+  :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
 .ant-popover-arrow-content {
   background: var(--background-color);
 }

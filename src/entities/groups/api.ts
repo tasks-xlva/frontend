@@ -21,6 +21,10 @@ export const updateGroup = (
 ) => api.patch<Components.Schemas.Group>(routes.group(id), values)
 
 export const useStudents = (id: number | string) => {
-  const { data: students } = useSWR<Components.Schemas.GroupMembership[]>(routes.groupsMemberships(id))
+  const { data: students } = useSWR<Components.Schemas.GroupMembership[]>(
+    routes.groupsMemberships(id),
+  )
   return { students }
 }
+
+export const joinGroup = (uuid: string) => api.post<Components.Schemas.JoinGroup>(routes.join(uuid))
