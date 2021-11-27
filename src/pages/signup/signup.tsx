@@ -1,26 +1,29 @@
 import { Button, Form, Input, Typography } from 'antd'
 import { Link } from 'react-router-dom'
 
+import { useAddUser } from 'pages/signup/lib/use-add-user'
 import { PUBLIC_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
 
 import styles from './signup.module.scss'
 
 export const Signup = () => {
+  const { handleAddUser } = useAddUser()
+
   return (
     <Grid>
       <Typography.Title level={2}>Регистрация</Typography.Title>
-      <Form layout='vertical'>
+      <Form layout='vertical' onFinish={handleAddUser}>
         <Form.Item
           label='Имя'
-          name='name'
+          name='firstName'
           rules={[{ required: true, message: `Введите имя` }]}
         >
           <Input placeholder='Имя' />
         </Form.Item>
         <Form.Item
           label='Фамилия'
-          name='surname'
+          name='lastName'
           rules={[{ required: true, message: `Введите фамилию` }]}
         >
           <Input placeholder='Фамилия' />
@@ -52,19 +55,22 @@ export const Signup = () => {
           dependencies={[`password`]}
           label='Повторите пароль'
           name='Confirm Password'
-          rules={[{ required: true, message: `Введите пароль` }, ({ getFieldValue }) => ({
-            validator(_, value) {
-              if (!value || getFieldValue(`password`) === value) {
-                return Promise.resolve()
-              }
-              return  Promise.reject(new Error(`Пароли должны совпадать!`))
-            }
-          })]}
+          rules={[
+            { required: true, message: `Введите пароль` },
+            ({ getFieldValue }) => ({
+              validator(_, value) {
+                if (!value || getFieldValue(`password`) === value) {
+                  return Promise.resolve()
+                }
+                return Promise.reject(new Error(`Пароли должны совпадать!`))
+              },
+            }),
+          ]}
         >
           <Input placeholder='Повторите пароль' type='password' />
         </Form.Item>
         <Form.Item>
-          <Button block type='primary'>
+          <Button block htmlType='submit' type='primary'>
             Зарегистрироваться
           </Button>
         </Form.Item>
