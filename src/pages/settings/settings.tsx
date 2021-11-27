@@ -1,20 +1,33 @@
 import { Button, Form, Input, Typography } from 'antd'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import { useMyself } from 'entities/users/api'
 import { Grid } from 'shared/ui'
 
 export const Settings = () => {
+  const [form] = Form.useForm()
+  const { myself } = useMyself()
+
+  useEffect(() => {
+    form.setFieldsValue(myself)
+  }, [form, myself])
+
   return (
     <Grid>
       <Typography.Title level={2}>Настройки</Typography.Title>
-      <Form layout='vertical'>
-        <Form.Item label='Имя' name='Name' rules={[{ required: false }]}>
+      <Form form={form} layout='vertical'>
+        <Form.Item label='Имя' name='firstName' rules={[{ required: false }]}>
           <Input placeholder='Имя' />
         </Form.Item>
-        <Form.Item label='Фамилия' name='Surname' rules={[{ required: false }]}>
+        <Form.Item
+          label='Фамилия'
+          name='lastName'
+          rules={[{ required: false }]}
+        >
           <Input placeholder='Фамилия' />
         </Form.Item>
-        <Form.Item label='Почта' name='Email' rules={[{ required: false }]}>
+        <Form.Item label='Почта' name='email' rules={[{ required: false }]}>
           <Input placeholder='Почта' type='email' />
         </Form.Item>
         <Form.Item>
