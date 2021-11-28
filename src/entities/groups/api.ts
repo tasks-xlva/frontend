@@ -27,4 +27,5 @@ export const useStudents = (id: number | string) => {
   return { students }
 }
 
-export const joinGroup = (uuid: string) => api.post<Components.Schemas.JoinGroup>(routes.join(uuid))
+export const joinGroup = (values: Components.Schemas.JoinGroupRequest) =>
+  api.post<Components.Schemas.JoinGroup>(routes.groupsJoin, values)
