@@ -16,7 +16,8 @@ export const routes = {
   tasks: `/tasks`,
   task: (id: Id) => `${routes.tasks}/${id}`,
 
-  users: `/users`,
-  me: `/users/me`,
+  users: `/users/`,
+  me: `/users/me/`,
+
   files: `/files`,
 }
