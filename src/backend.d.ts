@@ -1,5 +1,13 @@
 declare namespace Components {
   namespace Schemas {
+    export interface Activation {
+      uid: string
+      token: string
+    }
+    export interface ActivationRequest {
+      uid: string
+      token: string
+    }
     export interface File {
       id: number
       file: string // uri
@@ -20,7 +28,7 @@ declare namespace Components {
     }
     export interface Group {
       id: number
-      subjects?: FlatSubject[]
+      subjects: FlatSubject[]
       number: string
       uuid: string // uuid
     }
@@ -35,35 +43,26 @@ declare namespace Components {
       role: RoleEnum
     }
     export interface GroupRequest {
-      subjects?: FlatSubjectRequest[]
       number: string
     }
     export interface JoinGroup {
       group: number
       role: `ADMIN` | `EDITOR` | `MEMBER`
     }
-    export interface MyPassword {
-      /**
-       * Пароль
-       */
-      password: string
+    export interface JoinGroupRequest {
+      uuid: string // uuid
     }
-    export interface MyPasswordRequest {
-      /**
-       * Пароль
-       */
-      password: string
+    export interface PasswordResetConfirmRetype {
+      uid: string
+      token: string
+      newPassword: string
+      reNewPassword: string
     }
-    export interface MyProfile {
-      id: number
-      firstName: string
-      lastName: string
-      email: string // email
-    }
-    export interface MyProfileRequest {
-      firstName: string
-      lastName: string
-      email: string // email
+    export interface PasswordResetConfirmRetypeRequest {
+      uid: string
+      token: string
+      newPassword: string
+      reNewPassword: string
     }
     export interface PatchedGroupMembershipRequest {
       group?: number
@@ -71,19 +70,7 @@ declare namespace Components {
       role?: RoleEnum
     }
     export interface PatchedGroupRequest {
-      subjects?: FlatSubjectRequest[]
       number?: string
-    }
-    export interface PatchedMyPasswordRequest {
-      /**
-       * Пароль
-       */
-      password?: string
-    }
-    export interface PatchedMyProfileRequest {
-      firstName?: string
-      lastName?: string
-      email?: string // email
     }
     export interface PatchedSubjectRequest {
       name?: string
@@ -98,7 +85,45 @@ declare namespace Components {
       subject?: number
       attachments?: number[]
     }
+    export interface PatchedUserRequest {
+      firstName?: string
+      lastName?: string
+      /**
+       * Пароль
+       */
+      password?: string
+    }
     export type RoleEnum = `ADMIN` | `EDITOR` | `MEMBER`
+    export interface SendEmailReset {
+      email: string // email
+    }
+    export interface SendEmailResetRequest {
+      email: string // email
+    }
+    export interface SetPasswordRetype {
+      newPassword: string
+      reNewPassword: string
+      currentPassword: string
+    }
+    export interface SetPasswordRetypeRequest {
+      newPassword: string
+      reNewPassword: string
+      currentPassword: string
+    }
+    export interface SetUsername {
+      currentPassword: string
+      /**
+       * Email
+       */
+      newEmail: string // email
+    }
+    export interface SetUsernameRequest {
+      currentPassword: string
+      /**
+       * Email
+       */
+      newEmail: string // email
+    }
     export interface Subject {
       id: number
       tasks: Task[]
@@ -152,19 +177,44 @@ declare namespace Components {
       refresh: string
     }
     export interface User {
+      firstName: string
+      lastName: string
       id: number
+      email: string // email
+    }
+    export interface UserCreatePasswordRetype {
       firstName: string
       lastName: string
       email: string // email
+      id: number
+      rePassword: string
+    }
+    export interface UserCreatePasswordRetypeRequest {
+      firstName: string
+      lastName: string
+      password: string
+      email: string // email
+      rePassword: string
     }
     export interface UserRequest {
       firstName: string
       lastName: string
-      email: string // email
       /**
        * Пароль
        */
       password: string
+    }
+    export interface UsernameResetConfirm {
+      /**
+       * Email
+       */
+      newEmail: string // email
+    }
+    export interface UsernameResetConfirmRequest {
+      /**
+       * Email
+       */
+      newEmail: string // email
     }
   }
 }
@@ -190,6 +240,12 @@ declare namespace Paths {
     export type RequestBody = Components.Schemas.GroupRequest
     namespace Responses {
       export type $201 = Components.Schemas.Group
+    }
+  }
+  namespace GroupsJoinCreate {
+    export type RequestBody = Components.Schemas.JoinGroupRequest
+    namespace Responses {
+      export type $201 = Components.Schemas.JoinGroup
     }
   }
   namespace GroupsList {
@@ -282,17 +338,6 @@ declare namespace Paths {
     export type RequestBody = Components.Schemas.GroupRequest
     namespace Responses {
       export type $200 = Components.Schemas.Group
-    }
-  }
-  namespace JoinCreate {
-    namespace Parameters {
-      export type Uuid = string // uuid
-    }
-    export interface PathParameters {
-      uuid: Parameters.Uuid /* uuid */
-    }
-    namespace Responses {
-      export type $201 = Components.Schemas.JoinGroup
     }
   }
   namespace SubjectsCreate {
@@ -421,39 +466,132 @@ declare namespace Paths {
       export type $200 = Components.Schemas.TokenRefresh
     }
   }
-  namespace UsersCreate {
-    export type RequestBody = Components.Schemas.UserRequest
+  namespace UsersActivationCreate {
+    export type RequestBody = Components.Schemas.ActivationRequest
     namespace Responses {
-      export type $201 = Components.Schemas.User
+      export type $200 = Components.Schemas.Activation
+    }
+  }
+  namespace UsersCreate {
+    export type RequestBody = Components.Schemas.UserCreatePasswordRetypeRequest
+    namespace Responses {
+      export type $201 = Components.Schemas.UserCreatePasswordRetype
+    }
+  }
+  namespace UsersDestroy {
+    namespace Parameters {
+      export type Id = number
+    }
+    export interface PathParameters {
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export interface $204 {}
+    }
+  }
+  namespace UsersList {
+    namespace Responses {
+      export type $200 = Components.Schemas.User[]
+    }
+  }
+  namespace UsersMeDestroy {
+    namespace Responses {
+      export interface $204 {}
     }
   }
   namespace UsersMePartialUpdate {
-    export type RequestBody = Components.Schemas.PatchedMyProfileRequest
+    export type RequestBody = Components.Schemas.PatchedUserRequest
     namespace Responses {
-      export type $200 = Components.Schemas.MyProfile
-    }
-  }
-  namespace UsersMePasswordPartialUpdate {
-    export type RequestBody = Components.Schemas.PatchedMyPasswordRequest
-    namespace Responses {
-      export type $200 = Components.Schemas.MyPassword
-    }
-  }
-  namespace UsersMePasswordUpdate {
-    export type RequestBody = Components.Schemas.MyPasswordRequest
-    namespace Responses {
-      export type $200 = Components.Schemas.MyPassword
+      export type $200 = Components.Schemas.User
     }
   }
   namespace UsersMeRetrieve {
     namespace Responses {
-      export type $200 = Components.Schemas.MyProfile
+      export type $200 = Components.Schemas.User
     }
   }
   namespace UsersMeUpdate {
-    export type RequestBody = Components.Schemas.MyProfileRequest
+    export type RequestBody = Components.Schemas.UserRequest
     namespace Responses {
-      export type $200 = Components.Schemas.MyProfile
+      export type $200 = Components.Schemas.User
+    }
+  }
+  namespace UsersPartialUpdate {
+    namespace Parameters {
+      export type Id = number
+    }
+    export interface PathParameters {
+      id: Parameters.Id
+    }
+    export type RequestBody = Components.Schemas.PatchedUserRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.User
+    }
+  }
+  namespace UsersResendActivationCreate {
+    export type RequestBody = Components.Schemas.SendEmailResetRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.SendEmailReset
+    }
+  }
+  namespace UsersResetEmailConfirmCreate {
+    export type RequestBody = Components.Schemas.UsernameResetConfirmRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.UsernameResetConfirm
+    }
+  }
+  namespace UsersResetEmailCreate {
+    export type RequestBody = Components.Schemas.SendEmailResetRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.SendEmailReset
+    }
+  }
+  namespace UsersResetPasswordConfirmCreate {
+    export type RequestBody =
+      Components.Schemas.PasswordResetConfirmRetypeRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.PasswordResetConfirmRetype
+    }
+  }
+  namespace UsersResetPasswordCreate {
+    export type RequestBody = Components.Schemas.SendEmailResetRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.SendEmailReset
+    }
+  }
+  namespace UsersRetrieve {
+    namespace Parameters {
+      export type Id = number
+    }
+    export interface PathParameters {
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export type $200 = Components.Schemas.User
+    }
+  }
+  namespace UsersSetEmailCreate {
+    export type RequestBody = Components.Schemas.SetUsernameRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.SetUsername
+    }
+  }
+  namespace UsersSetPasswordCreate {
+    export type RequestBody = Components.Schemas.SetPasswordRetypeRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.SetPasswordRetype
+    }
+  }
+  namespace UsersUpdate {
+    namespace Parameters {
+      export type Id = number
+    }
+    export interface PathParameters {
+      id: Parameters.Id
+    }
+    export type RequestBody = Components.Schemas.UserRequest
+    namespace Responses {
+      export type $200 = Components.Schemas.User
     }
   }
 }

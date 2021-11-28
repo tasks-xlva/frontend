@@ -10,7 +10,7 @@ export const useJoinGroup = () => {
   const [status, setStatus] = useState<`success` | `error`>()
 
   useEffect(() => {
-    joinGroup(uuid)
+    joinGroup({ uuid })
       .then(({ data }) =>
         history.push(generatePath(PRIVATE_PATH.GROUP, { groupId: data.group })),
       )
