@@ -54,7 +54,7 @@ export const Signup = () => {
           hasFeedback
           dependencies={[`password`]}
           label='Повторите пароль'
-          name='Confirm Password'
+          name='rePassword'
           rules={[
             { required: true, message: `Введите пароль` },
             ({ getFieldValue }) => ({
