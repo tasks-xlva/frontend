@@ -131,6 +131,11 @@ h6.ant-typography,
   background: var(--background-color);
 }
 
+.ant-input[disabled] {
+  color: var(--secondary);
+  background: var(--background-color);
+}
+
 .ant-btn-link {
   border: none;
 }
