@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-import { routes } from 'shared/api'
+import {api, routes} from 'shared/api'
 
 export const useSubjects = () => {
   const { data: subjects } = useSWR<Components.Schemas.Subject[]>(
@@ -15,3 +15,6 @@ export const useSubject = (id: number | string) => {
   )
   return { subject }
 }
+
+export const createSubject = (values: Components.Schemas.SubjectRequest) =>
+  api.post<Components.Schemas.Subject>(routes.subjects, values)
