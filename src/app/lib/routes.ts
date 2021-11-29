@@ -20,4 +20,7 @@ export const publicRoutes: Routes = [
   { path: PUBLIC_PATH.LOGIN, component: pages.Login, default: true },
   { path: PUBLIC_PATH.SIGNUP, component: pages.Signup },
   { path: PUBLIC_PATH.RESTORE, component: pages.Restore },
+  { path: PUBLIC_PATH.RESULT, component: pages.Result },
+  { path: PUBLIC_PATH.ACTIVATE, component: pages.Activate },
+  { path: PUBLIC_PATH.RESTORE_CONFIRM, component: pages.RestoreConfirm },
 ]

@@ -253,6 +253,19 @@ declare namespace Paths {
       export type $200 = Components.Schemas.Group[]
     }
   }
+  namespace GroupsMembershipsDestroy {
+    namespace Parameters {
+      export type GroupPk = number
+      export type Id = number
+    }
+    export interface PathParameters {
+      group_pk: Parameters.GroupPk
+      id: Parameters.Id
+    }
+    namespace Responses {
+      export interface $204 {}
+    }
+  }
   namespace GroupsMembershipsList {
     namespace Parameters {
       export type GroupPk = number

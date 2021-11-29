@@ -1,19 +1,30 @@
 import { useCallback } from 'react'
-import { useHistory } from 'react-router-dom'
 
 import { createUser } from 'entities/users/api'
-import { PRIVATE_PATH } from 'shared/config'
+import { useIsLoading } from 'features/helpers/lib'
+import { useResult } from 'shared/lib'
 
 export const useAddUser = () => {
-  const history = useHistory()
+  const { isLoading, startLoading, finishLoading } = useIsLoading()
+  const { handleResult } = useResult()
 
   const handleAddUser = useCallback(
     async (values: Components.Schemas.UserRequest) => {
-      await createUser(values)
-      history.push(PRIVATE_PATH.TASKS)
+      try {
+        startLoading()
+        await createUser(values)
+        handleResult({
+          title: `Спасибо за регистрацию!`,
+          status: `success`,
+          text: `К вам на почту отправлена ссылка для подтверждения аккаунта`,
+        })
+      } catch (error) {
+        console.error(error)
+        finishLoading()
+      }
     },
-    [history],
+    [finishLoading, handleResult, startLoading],
   )
 
-  return { handleAddUser }
+  return { handleAddUser, isLoading }
 }

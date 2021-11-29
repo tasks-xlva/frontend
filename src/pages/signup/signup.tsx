@@ -8,7 +8,7 @@ import { Grid } from 'shared/ui'
 import styles from './signup.module.scss'
 
 export const Signup = () => {
-  const { handleAddUser } = useAddUser()
+  const { handleAddUser, isLoading } = useAddUser()
 
   return (
     <Grid>
@@ -36,17 +36,22 @@ export const Signup = () => {
           <Input placeholder='Почта' />
         </Form.Item>
         <Form.Item
-          label='Логин'
-          name='login'
-          rules={[{ required: false, message: `Введите логин` }]}
-        >
-          <Input placeholder='Логин' />
-        </Form.Item>
-        <Form.Item
           hasFeedback
           label='Пароль'
           name='password'
-          rules={[{ required: true, message: `Введите пароль` }]}
+          rules={[
+            { required: true, message: `Введите пароль` },
+            () => ({
+              validator(_, value) {
+                if (!value || value.length >= 8) {
+                  return Promise.resolve()
+                }
+                return Promise.reject(
+                  new Error(`Минимальная длина пароля - 8 символов`),
+                )
+              },
+            }),
+          ]}
         >
           <Input placeholder='Пароль' type='password' />
         </Form.Item>
@@ -70,7 +75,7 @@ export const Signup = () => {
           <Input placeholder='Повторите пароль' type='password' />
         </Form.Item>
         <Form.Item>
-          <Button block htmlType='submit' type='primary'>
+          <Button block htmlType='submit' loading={isLoading} type='primary'>
             Зарегистрироваться
           </Button>
         </Form.Item>

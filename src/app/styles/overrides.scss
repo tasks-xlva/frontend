@@ -48,7 +48,8 @@ h6.ant-typography,
 }
 
 .ant-typography.ant-typography-secondary,
-.ant-picker-suffix {
+.ant-picker-suffix,
+.ant-result-subtitle {
   color: var(--secondary);
 }
 
@@ -127,6 +128,11 @@ h6.ant-typography,
 .ant-form-item-has-error
   :not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover,
 .ant-popover-arrow-content {
+  background: var(--background-color);
+}
+
+.ant-input[disabled] {
+  color: var(--secondary);
   background: var(--background-color);
 }
 
