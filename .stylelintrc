@@ -1,14 +1,3 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-css-modules",
-    "stylelint-config-recess-order"
-  ],
-  "rules": {
-    "no-descending-specificity": null,
-    "selector-class-pattern": null,
-    "selector-descendant-combinator-no-non-space": null,
-    "indentation": null,
-    "string-quotes": "single"
-  }
+  "extends": ["stylelint-config-css-modules", "stylelint-config-recess-order"]
 }
