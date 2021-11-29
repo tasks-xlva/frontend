@@ -1,3 +1,5 @@
 export * from './use-is-true'
 export * from './use-media-query'
 export * from './use-share'
+export * from './use-result'
+export * from './use-query'

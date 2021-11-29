@@ -2,6 +2,7 @@ export enum PUBLIC_PATH {
   LOGIN = `/login`,
   SIGNUP = `/signup`,
   RESTORE = `/restore`,
+  RESULT = `/result`,
 }
 
 export enum PRIVATE_PATH {
