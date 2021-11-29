@@ -1,10 +1,11 @@
 import { EditOutlined } from '@ant-design/icons'
 import { Button, Typography } from 'antd'
-import { generatePath, useParams } from 'react-router-dom'
+import { generatePath, useParams, Link } from 'react-router-dom'
 
-import { useGroup } from 'entities/groups/api'
+import { useGroup, useStudents } from 'entities/groups/api'
 import { StudentsList } from 'entities/groups/ui'
 import { SubjectsList } from 'entities/subjects/ui'
+import { useMyself } from 'entities/users/api'
 import { ShareOrCopy } from 'features/share-or-copy/ui'
 import { PRIVATE_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
@@ -15,6 +16,8 @@ import styles from './group.module.scss'
 export const Group = () => {
   let { groupId } = useParams<{ groupId: string }>()
   const { group } = useGroup(groupId)
+  const { myself } = useMyself()
+  const { students } = useStudents(groupId)
 
   return (
     <Grid>
@@ -30,7 +33,7 @@ export const Group = () => {
           }
         />
         <Button
-          href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId: groupId })}
+          href={generatePath(PRIVATE_PATH.GROUP_EDIT, { groupId })}
           icon={<EditOutlined />}
           size='middle'
           type='primary'
@@ -38,7 +41,13 @@ export const Group = () => {
       </div>
       <Typography.Title level={3}>Предметы</Typography.Title>
       <SubjectsList subjects={group?.subjects} />
-      <Button block>Добавить предмет</Button>
+      {students?.find(
+        (item) => item.user.id === myself?.id && item.role !== `MEMBER`,
+      ) && (
+        <Link to={generatePath(PRIVATE_PATH.SUBJECT_ADD, { groupId })}>
+          <Button block>Добавить предмет</Button>
+        </Link>
+      )}
 
       <PrivateLayout.Aside>
         <StudentsList />
