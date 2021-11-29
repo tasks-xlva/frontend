@@ -18,6 +18,7 @@ export const routes = {
 
   users: `/users/`,
   me: `/users/me/`,
+  usersActivation: `/users/activation/`,
 
   files: `/files`,
 }

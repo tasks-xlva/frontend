@@ -3,6 +3,7 @@ export enum PUBLIC_PATH {
   SIGNUP = `/signup`,
   RESTORE = `/restore`,
   RESULT = `/result`,
+  ACTIVATE = `/activate/:uid/:token`
 }
 
 export enum PRIVATE_PATH {
