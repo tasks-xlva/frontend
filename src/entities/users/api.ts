@@ -13,3 +13,6 @@ export const useMyself = () => {
 
 export const createUser = (values: Components.Schemas.UserRequest) =>
   api.post<Components.Schemas.User>(routes.users, values)
+
+export const activateUser = (values: Components.Schemas.ActivationRequest) =>
+  api.post<Components.Schemas.Activation>(routes.usersActivation, values)
