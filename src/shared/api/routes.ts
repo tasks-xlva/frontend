@@ -20,6 +20,8 @@ export const routes = {
   me: `/users/me/`,
   usersActivation: `/users/activation/`,
   usersSetPassword: `/users/set_password/`,
+  usersResetPassword: `/users/reset_password/`,
+  usersResetPasswordConfirm: `/users/reset_password_confirm/`,
 
   files: `/files`,
 }

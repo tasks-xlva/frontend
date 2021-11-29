@@ -2,6 +2,7 @@ export enum PUBLIC_PATH {
   LOGIN = `/login`,
   SIGNUP = `/signup`,
   RESTORE = `/restore`,
+  RESTORE_CONFIRM = `/restore/confirm/:uid/:token`,
   RESULT = `/result`,
   ACTIVATE = `/activate/:uid/:token`
 }

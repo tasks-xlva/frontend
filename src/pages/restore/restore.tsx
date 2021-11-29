@@ -4,11 +4,15 @@ import { Link } from 'react-router-dom'
 import { PUBLIC_PATH } from 'shared/config'
 import { Grid } from 'shared/ui'
 
+import { useResetPassword } from './lib'
+
 export const Restore = () => {
+  const { handleResetPassword, isLoading } = useResetPassword()
+
   return (
     <Grid>
       <Typography.Title level={2}>Сброс пароля</Typography.Title>
-      <Form layout='vertical'>
+      <Form layout='vertical' onFinish={handleResetPassword}>
         <Form.Item
           label='Почта'
           name='email'
@@ -17,11 +21,9 @@ export const Restore = () => {
           <Input placeholder='Почта' type='email' />
         </Form.Item>
         <Form.Item>
-          <Link to=''>
-            <Button block type='primary'>
-              Сбросить
-            </Button>
-          </Link>
+          <Button block htmlType='submit' loading={isLoading} type='primary'>
+            Сбросить
+          </Button>
         </Form.Item>
         <Form.Item>
           <Link to={PUBLIC_PATH.LOGIN}>
