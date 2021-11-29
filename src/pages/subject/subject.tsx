@@ -13,7 +13,7 @@ export const Subject = () => {
 
   return (
     <Grid>
-      <Typography.Title level={2}>{subjectId}</Typography.Title>
+      <Typography.Title level={2}>{subject?.name}</Typography.Title>
       <Markdown isEditing={isEditing} />
       <Button block onClick={() => setIsEditing(!isEditing)}>
         {isEditing ? `Сохранить` : `Редактировать`} описание
