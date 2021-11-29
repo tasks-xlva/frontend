@@ -16,3 +16,14 @@ export const createUser = (values: Components.Schemas.UserRequest) =>
 
 export const activateUser = (values: Components.Schemas.ActivationRequest) =>
   api.post<Components.Schemas.Activation>(routes.usersActivation, values)
+
+export const updateUser = (values: Components.Schemas.UserRequest) =>
+  api.patch<Components.Schemas.User>(routes.me, values)
+
+export const updatePassword = (
+  values: Components.Schemas.SetPasswordRetypeRequest,
+) =>
+  api.post<Components.Schemas.SetPasswordRetype>(
+    routes.usersSetPassword,
+    values,
+  )
