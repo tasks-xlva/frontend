@@ -85,14 +85,14 @@ export const Settings = () => {
         </Form.Item>
         <Form.Item
           hasFeedback
-          dependencies={[`password`]}
+          dependencies={[`newPassword`]}
           label='Повторите пароль'
           name='reNewPassword'
           rules={[
             { required: true, message: `Введите пароль` },
             ({ getFieldValue }) => ({
               validator(_, value) {
-                if (!value || getFieldValue(`password`) === value) {
+                if (!value || getFieldValue(`newPassword`) === value) {
                   return Promise.resolve()
                 }
                 return Promise.reject(new Error(`Пароли должны совпадать!`))

@@ -27,3 +27,20 @@ export const updatePassword = (
     routes.usersSetPassword,
     values,
   )
+
+export const resetPassword = (
+  values: Components.Schemas.SendEmailResetRequest,
+) =>
+  api.post<Components.Schemas.SendEmailReset>(
+    routes.usersResetPassword,
+    values,
+  )
+
+
+export const resetPasswordConfirm = (
+  values: Components.Schemas.PasswordResetConfirmRetypeRequest,
+) =>
+  api.post<Components.Schemas.PasswordResetConfirmRetype>(
+    routes.usersResetPasswordConfirm,
+    values,
+  )
