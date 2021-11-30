@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 
-import {api, routes} from 'shared/api'
+import { api, routes } from 'shared/api'
 
 export const useSubjects = () => {
   const { data: subjects } = useSWR<Components.Schemas.Subject[]>(
@@ -18,3 +18,8 @@ export const useSubject = (id: number | string) => {
 
 export const createSubject = (values: Components.Schemas.SubjectRequest) =>
   api.post<Components.Schemas.Subject>(routes.subjects, values)
+
+export const editSubject = (
+  id: number | string,
+  values: Components.Schemas.PatchedSubjectRequest,
+) => api.patch<Components.Schemas.Subject>(routes.subject(id), values)

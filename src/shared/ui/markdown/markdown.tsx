@@ -7,7 +7,7 @@ import styles from './markdown.module.scss'
 
 interface Props {
   isEditing?: boolean
-  value?: string
+  value?: string | null
   onChange?: Dispatch<string>
 }
 
@@ -18,7 +18,7 @@ export const Markdown = ({ value, onChange, isEditing }: Props) => {
     <SimpleMdeReact
       className={styles.editor}
       options={options}
-      value={value}
+      value={value || undefined}
       onChange={onChange}
     />
   ) : (
