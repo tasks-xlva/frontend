@@ -29,3 +29,13 @@ export const useStudents = (id: number | string) => {
 
 export const joinGroup = (values: Components.Schemas.JoinGroupRequest) =>
   api.post<Components.Schemas.JoinGroup>(routes.groupsJoin, values)
+
+export const updateMemberRole = (
+  groupId: number,
+  userId: number,
+  values: Components.Schemas.PatchedGroupMembershipRequest,
+) =>
+  api.patch<Components.Schemas.GroupMembership>(
+    routes.groupsMembership(groupId, userId),
+    values,
+  )

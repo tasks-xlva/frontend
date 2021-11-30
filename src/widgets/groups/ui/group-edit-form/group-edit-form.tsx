@@ -2,12 +2,13 @@ import { Button, Form, Input, Typography } from 'antd'
 import { useEffect, useMemo, useState } from 'react'
 
 import { StudentModal, StudentsList } from 'entities/groups/ui'
+import { UpdateMemberRole } from 'pages/group-edit/lib'
 import { Grid } from 'shared/ui'
 import { PrivateLayout } from 'widgets/private-layout'
 
 interface Props {
   onSubmit: (values: Components.Schemas.GroupRequest) => void
-  values?: Components.Schemas.GroupRequest
+  values?: Components.Schemas.Group
 }
 
 export const GroupEditForm = ({ onSubmit, values }: Props) => {
@@ -15,6 +16,10 @@ export const GroupEditForm = ({ onSubmit, values }: Props) => {
   const [form] = Form.useForm()
 
   const isNew = useMemo(() => values, [values])
+
+  const changeStudentRole = (role: string) => {
+    values && id && UpdateMemberRole(values?.id, id, role)
+  }
 
   useEffect(() => {
     form.setFieldsValue(values)
@@ -38,7 +43,11 @@ export const GroupEditForm = ({ onSubmit, values }: Props) => {
       {isNew && (
         <PrivateLayout.Aside>
           <StudentsList onUserClick={setId} />
-          <StudentModal id={id} onClose={() => setId(null)} />
+          <StudentModal
+            id={id}
+            onClose={() => setId(null)}
+            onSave={changeStudentRole}
+          />
         </PrivateLayout.Aside>
       )}
     </Grid>
