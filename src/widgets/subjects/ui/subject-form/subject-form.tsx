@@ -81,7 +81,7 @@ export const SubjectForm = ({
         )}
       </Form>
 
-      {!isNew && !isEditing && <TasksList tasks={values?.tasks} />}
+      {!isNew && !isEditing && <TasksList subjectId={values?.id} tasks={values?.tasks}/>}
     </Grid>
   )
 }
