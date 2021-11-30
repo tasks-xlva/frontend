@@ -8,7 +8,7 @@ export const useDarkTheme = () => {
 
   useEffect(() => {
     ConfigProvider.config({
-      theme: { primaryColor: isMatch ? `#3f37c9` : `#272727` },
+      theme: { primaryColor: isMatch ? `#177ddc` : `#272727` },
     })
   }, [isMatch])
 }

@@ -19,6 +19,7 @@ export enum PRIVATE_PATH {
 
   SUBJECTS = `/subjects`,
   SUBJECT = `/subjects/:subjectId`,
+  SUBJECT_ADD = `/groups/:groupId/subjects/add`,
 
   TASKS = `/tasks`,
   TASK = `/task/:taskId`,
