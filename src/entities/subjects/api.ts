@@ -23,3 +23,6 @@ export const editSubject = (
   id: number | string,
   values: Components.Schemas.PatchedSubjectRequest,
 ) => api.patch<Components.Schemas.Subject>(routes.subject(id), values)
+
+export const deleteSubject = (id: number | string) =>
+  api.patch<void>(routes.subject(id))

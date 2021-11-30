@@ -12,6 +12,7 @@ interface Props {
   setIsEditing?: Dispatch<boolean>
   isNew?: boolean
   onSubmit: (values: Components.Schemas.SubjectRequest) => Promise<void> | void
+  onDelete?: () => Promise<void> | void
   values?: Components.Schemas.Subject
 }
 
@@ -21,6 +22,7 @@ export const SubjectForm = ({
   isNew,
   setIsEditing,
   isEditing,
+  onDelete,
 }: Props) => {
   const [form] = Form.useForm()
 
@@ -64,6 +66,11 @@ export const SubjectForm = ({
             <Form.Item>
               <Button block htmlType='submit' type='primary'>
                 Сохранить
+              </Button>
+            </Form.Item>
+            <Form.Item>
+              <Button block danger onClick={onDelete}>
+                Удалить
               </Button>
             </Form.Item>
           </>
