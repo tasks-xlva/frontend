@@ -1,15 +1,16 @@
 import { Button, Empty, Typography } from 'antd'
 import moment from 'moment'
-import { generatePath } from 'react-router-dom'
+import { generatePath, Link } from 'react-router-dom'
 
 import { PRIVATE_PATH } from 'shared/config'
 import { Grid, LinkCard } from 'shared/ui'
 
 interface Props {
   tasks: Components.Schemas.Task[] | undefined
+  subjectId?: number
 }
 
-export const TasksList = ({ tasks }: Props) => {
+export const TasksList = ({ tasks, subjectId }: Props) => {
   return (
     <Grid>
       {!tasks || !!tasks.length ? (
@@ -29,9 +30,13 @@ export const TasksList = ({ tasks }: Props) => {
       ) : (
         <Empty description='Заданий пока нет' />
       )}
-      <Button block type='dashed'>
-        Добавить задание
-      </Button>
+      {subjectId && (
+        <Link to={generatePath(PRIVATE_PATH.TASK_ADD, { subjectId })}>
+          <Button block type='dashed'>
+            Добавить задание
+          </Button>
+        </Link>
+      )}
     </Grid>
   )
 }

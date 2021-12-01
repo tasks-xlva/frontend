@@ -13,6 +13,7 @@ export const privateRoutes: Routes = [
   { path: PRIVATE_PATH.SUBJECT_ADD, component: pages.SubjectAdd },
   { path: PRIVATE_PATH.TASKS, component: pages.Tasks, default: true },
   { path: PRIVATE_PATH.TASK, component: pages.Task },
+  {path: PRIVATE_PATH.TASK_ADD, component: pages.TaskAdd },
   { path: PRIVATE_PATH.JOIN_GROUP, component: pages.JoinGroup },
 ]
 

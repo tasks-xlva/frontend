@@ -14,3 +14,11 @@ export const useTask = (id: number | string) => {
 
 export const deleteTask = (id: number | string) =>
   api.delete<void>(routes.task(id))
+
+export const editTask = (
+  id: string,
+  values: Components.Schemas.PatchedTaskRequest,
+) => api.patch<Components.Schemas.Task>(routes.task(id), values)
+
+export const createTask = (values: Components.Schemas.TaskRequest) =>
+  api.post<Components.Schemas.Task>(routes.tasks, values)
