@@ -2,7 +2,7 @@ import { List, Typography } from 'antd'
 import { Dispatch } from 'react'
 import {useParams} from "react-router-dom";
 
-import {useStudents} from "entities/groups/api";
+import {useMemberships} from "entities/groups/api";
 import { Grid } from 'shared/ui'
 
 import styles from './students-list.module.scss'
@@ -13,13 +13,13 @@ interface Props {
 
 export const StudentsList = ({ onUserClick }: Props) => {
   let { groupId } = useParams<{ groupId: string }>()
-  const { students } = useStudents(groupId)
+  const { memberships } = useMemberships(groupId)
   
   return (
     <Grid>
       <Typography.Title level={3}>Студенты</Typography.Title>
       <List
-        dataSource={students}
+        dataSource={memberships}
         renderItem={(item) => (
           <List.Item
             extra={

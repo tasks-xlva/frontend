@@ -5,6 +5,8 @@ import { Dispatch, useCallback, useEffect } from 'react'
 
 import { Attachments, Grid, Markdown } from 'shared/ui'
 
+import styles from './task-form.module.scss'
+
 interface Props {
   isEditing?: boolean
   setIsEditing?: Dispatch<boolean>
@@ -40,16 +42,18 @@ export const TaskForm = ({
 
   return (
     <Grid>
-      <Typography.Title level={2}>
-        {isNew ? `Новое задание` : values?.name}
-      </Typography.Title>
-      {!isEditing && !!setIsEditing && (
-        <Button
-          icon={<EditOutlined onClick={() => setIsEditing(true)} />}
-          size='middle'
-          type='primary'
-        />
-      )}
+      <div className={styles.header}>
+        <Typography.Title level={2}>
+          {isNew ? `Новое задание` : values?.name}
+        </Typography.Title>
+        {!isEditing && !!setIsEditing && (
+          <Button
+            icon={<EditOutlined onClick={() => setIsEditing(true)} />}
+            size='middle'
+            type='primary'
+          />
+        )}
+      </div>
       <Form form={form} layout='vertical' onFinish={handleSave}>
         {isEditing ? (
           <>
