@@ -37,7 +37,7 @@ export const Modal = ({
             <Button
               block
               type='primary'
-              onClick={() => modal.info({ title: `Use Hook!` })}
+              onClick={onOk}
             >
               Сохранить
             </Button>

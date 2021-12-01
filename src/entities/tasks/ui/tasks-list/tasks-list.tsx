@@ -22,7 +22,7 @@ export const TasksList = ({ tasks, subjectId }: Props) => {
             <Typography.Title level={4}>{task.name}</Typography.Title>
             <Typography.Text type='secondary'>
               {task.deadline
-                ? `До` + moment(task.deadline).format(`DD.MM.YY`)
+                ? `До ${moment(task.deadline).format(`DD.MM.YY`)}`
                 : `Нет дедлайна`}
             </Typography.Text>
           </LinkCard>

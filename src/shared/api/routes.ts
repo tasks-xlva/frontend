@@ -8,7 +8,9 @@ export const routes = {
   group: (id: Id) => `${routes.groups}/${id}`,
   groupsJoin: `/groups/join`,
 
-  groupsMemberships: (groupId: Id) => `${routes.group(groupId)}/memberships`,
+  groupMemberships: (groupId: Id) => `${routes.group(groupId)}/memberships`,
+  groupMembership: (groupId: Id, membershipId: Id) =>
+    `${routes.groupMemberships(groupId)}/${membershipId}`,
 
   subjects: `/subjects`,
   subject: (id: Id) => `${routes.subjects}/${id}`,

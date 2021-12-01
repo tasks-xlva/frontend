@@ -6,11 +6,12 @@ import { Grid } from 'shared/ui'
 import { PrivateLayout } from 'widgets/private-layout'
 
 interface Props {
+  isAdmin?: boolean
   onSubmit: (values: Components.Schemas.GroupRequest) => void
   values?: Components.Schemas.GroupRequest
 }
 
-export const GroupEditForm = ({ onSubmit, values }: Props) => {
+export const GroupEditForm = ({ onSubmit, values, isAdmin }: Props) => {
   const [id, setId] = useState<number | null>(null)
   const [form] = Form.useForm()
 
@@ -38,7 +39,7 @@ export const GroupEditForm = ({ onSubmit, values }: Props) => {
       {isNew && (
         <PrivateLayout.Aside>
           <StudentsList onUserClick={setId} />
-          <StudentModal id={id} onClose={() => setId(null)} />
+          {isAdmin && <StudentModal id={id} onClose={() => setId(null)} />}
         </PrivateLayout.Aside>
       )}
     </Grid>
