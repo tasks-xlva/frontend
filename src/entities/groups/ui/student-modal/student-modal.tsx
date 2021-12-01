@@ -8,7 +8,6 @@ import { Modal } from 'shared/ui'
 import { useEditMembership } from './lib/use-edit-membership'
 import styles from './student-modal.module.scss'
 
-
 interface Props {
   id: number | null
   onClose: () => void
@@ -32,7 +31,12 @@ export const StudentModal = ({ id, onClose }: Props) => {
   }, [form, membership])
 
   return (
-    <Modal title={id} visible={!!id} onCancel={onClose} onOk={form.submit}>
+    <Modal
+      title={`${membership?.user.firstName} ${membership?.user.lastName}`}
+      visible={!!id}
+      onCancel={onClose}
+      onOk={form.submit}
+    >
       <Form form={form} onFinish={handleEditMembership}>
         <Form.Item name='role'>
           <Radio.Group

@@ -8,7 +8,7 @@ export const useTasks = () => {
 }
 
 export const useTask = (id: number | string) => {
-  const { data: task } = useSWR<Components.Schemas.Task>(routes.task(id))
+  const { data: task } = useSWR<Components.Schemas.TaskListRetrieve>(routes.task(id))
   return { task }
 }
 

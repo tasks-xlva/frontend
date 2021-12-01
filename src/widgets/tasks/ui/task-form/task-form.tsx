@@ -13,7 +13,7 @@ interface Props {
   isNew?: boolean
   onSubmit: (values: Components.Schemas.TaskRequest) => Promise<void> | void
   onDelete?: () => Promise<void> | void
-  values?: Components.Schemas.Task
+  values?: Components.Schemas.TaskListRetrieve
 }
 
 export const TaskForm = ({
@@ -54,48 +54,50 @@ export const TaskForm = ({
           />
         )}
       </div>
-      <Form form={form} layout='vertical' onFinish={handleSave}>
-        {isEditing ? (
-          <>
-            <Form.Item label='Название работы' name='name'>
-              <Input placeholder='Лабораторная работа' />
-            </Form.Item>
-            <Form.Item label='Описание' name='description'>
-              <Markdown isEditing={isEditing} />
-            </Form.Item>
-            <Form.Item label='Дедлайн' name='deadline'>
-              <DatePicker
-                format={(date) => date && moment(date).format(`DD.MM.YY`)}
-                placeholder='Укажите дедлайн'
-              />
-            </Form.Item>
-            <Form.Item>
-              <Button block htmlType='submit' type='primary'>
-                Сохранить
-              </Button>
-            </Form.Item>
-            <Form.Item>
-              <Button block danger onClick={onDelete}>
-                Удалить
-              </Button>
-            </Form.Item>
-          </>
-        ) : (
-          <>
-            <Typography.Title level={4}>
-              Дедлайн{` `}
-              {values ? moment(values.deadline).format(`DD.MM.YY`) : `не задан`}
-            </Typography.Title>
-            <Form.Item label='Описание'>
-              <Markdown value={values?.description} />
-            </Form.Item>
-            <Typography.Title level={3}>Вложения</Typography.Title>
-            <Form.Item name='attachments'>
-              <Attachments />
-            </Form.Item>
-          </>
-        )}
-      </Form>
+      {isEditing ? (
+        <Form form={form} layout='vertical' onFinish={handleSave}>
+          <Form.Item label='Название работы' name='name'>
+            <Input placeholder='Лабораторная работа' />
+          </Form.Item>
+          <Form.Item label='Описание' name='description'>
+            <Markdown isEditing={isEditing} />
+          </Form.Item>
+          <Form.Item label='Дедлайн' name='deadline'>
+            <DatePicker
+              format={(date) => date && moment(date).format(`DD.MM.YY`)}
+              placeholder='Укажите дедлайн'
+            />
+          </Form.Item>
+          <Form.Item label='Вложения' name='attachments'>
+            <Attachments />
+          </Form.Item>
+          <Form.Item>
+            <Button block htmlType='submit' type='primary'>
+              Сохранить
+            </Button>
+          </Form.Item>
+          <Form.Item>
+            <Button block danger onClick={onDelete}>
+              Удалить
+            </Button>
+          </Form.Item>
+        </Form>
+      ) : (
+        <Form form={form} layout='vertical' onFinish={handleSave}>
+          <Form.Item label='Дедлайн'>
+            {values ? moment(values.deadline).format(`DD.MM.YY`) : `Не задан`}
+          </Form.Item>
+          <Form.Item label='Описание'>
+            <Markdown value={values?.description} />
+          </Form.Item>
+          <Typography.Title level={3}>Вложения</Typography.Title>
+          {values?.attachments?.length ? (
+            <Attachments value={values.attachments} />
+          ) : (
+            `Вложений нет`
+          )}
+        </Form>
+      )}
     </Grid>
   )
 }

@@ -1,42 +1,24 @@
 // TODO переделать весь компонент господи какой же это кал
 
 import { Upload } from 'antd'
-import { ComponentProps, useCallback, useEffect, useState } from 'react'
+import { UploadChangeParam } from 'antd/es/upload'
+import {
+  ComponentProps,
+  useCallback,
+  useMemo,
+} from 'react'
 
-import { api, routes } from 'shared/api'
+import { api, baseURL } from 'shared/api'
 
 interface Props {
-  value?: Components.Schemas.File[]
+  value?: (Components.Schemas.File | string)[]
   onChange?: (value: string[]) => void
 }
 
 export const Attachments = ({ value, onChange }: Props) => {
-  const [fileList, setFileList] = useState<
-    ComponentProps<typeof Upload>[`fileList`]
-  >([])
-
-  const handleUpload = useCallback<
-    Exclude<ComponentProps<typeof Upload>[`customRequest`], undefined>
-  >(async ({ file, onProgress, onError, onSuccess }) => {
-    try {
-      const formData = new FormData()
-      formData.append(`file`, file)
-      const { data } = await api.post<Components.Schemas.File>(
-        routes.files,
-        formData,
-        {
-          onUploadProgress: onProgress,
-        },
-      )
-      if (onSuccess) {
-        onSuccess(data)
-      }
-    } catch (error: any) {
-      if (onError) {
-        onError(error)
-      }
-    }
-  }, [])
+  const handleStartFileUpload = (file: File) => {
+    return { file, name: file.name }
+  }
 
   const handleChange = useCallback<
     (
@@ -44,41 +26,56 @@ export const Attachments = ({ value, onChange }: Props) => {
         Parameters<
           Exclude<ComponentProps<typeof Upload>[`onChange`], undefined>
         >[0],
-        `fileList`
+        `fileList` | `file`
       >,
     ) => void
   >(
-    ({ fileList }) => {
-      setFileList(fileList)
-      if (onChange) {
-        onChange(fileList.map((file) => file.response.id))
-      }
+    (params: UploadChangeParam) => {
+      const { file, fileList } = params
+      if (file.response && onChange)
+        onChange(fileList.map((file) => file.response?.id))
     },
     [onChange],
   )
 
-  useEffect(() => {
-    if (!fileList) {
-      handleChange({
-        fileList:
-          value?.map(({ file }) => ({
-            url: file,
-            uid: file,
-            name: file,
-            response: file,
-          })) || [],
-      })
-    }
-  }, [fileList, handleChange, value])
+  const fileList = useMemo(
+    () =>
+      value?.map((item) =>
+        typeof item === `string`
+          ? {
+              uid: item,
+              status: `done` as `done`,
+              name: item,
+              url: item,
+              response: { file: item },
+              size: 0,
+              type: ``,
+            }
+          : {
+              uid: item?.file,
+              status: `done` as `done`,
+              name: item?.file,
+              url: item?.file,
+              response: item,
+              size: 0,
+              type: ``,
+            },
+      ),
+    [value],
+  )
 
   return (
     <Upload
-      customRequest={handleUpload}
-      fileList={fileList}
+      action={`${baseURL}/files`}
+      data={handleStartFileUpload}
+      defaultFileList={fileList}
+      headers={{
+        Authorization: api.defaults.headers.common.Authorization,
+      }}
       listType='picture-card'
       onChange={handleChange}
     >
-      Загрузить
+      {onChange && `Загрузить`}
     </Upload>
   )
 }
