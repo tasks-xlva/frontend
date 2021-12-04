@@ -1,14 +1,21 @@
+import { AxiosRequestConfig } from 'axios'
 import useSWR from 'swr'
 
 import { api, routes } from 'shared/api'
 
-export const useTasks = () => {
-  const { data: tasks } = useSWR<Components.Schemas.Task[]>(routes.tasks)
+type TasksList = Components.Schemas.Task[]
+export const useTasks = (params?: unknown) => {
+  const { data: tasks } = useSWR<TasksList>([
+    routes.tasks,
+    { params } as AxiosRequestConfig<TasksList>,
+  ])
   return { tasks: tasks }
 }
 
 export const useTask = (id: number | string) => {
-  const { data: task } = useSWR<Components.Schemas.TaskListRetrieve>(routes.task(id))
+  const { data: task } = useSWR<Components.Schemas.TaskListRetrieve>(
+    routes.task(id),
+  )
   return { task }
 }
 

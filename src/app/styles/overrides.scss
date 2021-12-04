@@ -14,7 +14,11 @@ a.ant-typography,
 .ant-upload-list-item,
 .ant-modal-content,
 .ant-radio-button-wrapper,
-.ant-input-affix-wrapper {
+.ant-input-affix-wrapper,
+.ant-select-selector,
+.ant-select-selection-item,
+.ant-select-dropdown,
+.ant-popover-inner {
   border-radius: 0 !important;
 }
 
@@ -25,6 +29,12 @@ a.ant-typography,
 body {
   color: var(--text-color);
   background: var(--body-color);
+}
+
+input::placeholder {
+  color: var(--text-color) !important;
+  opacity: 1;
+  fill-opacity: 1;
 }
 
 .ant-typography,
@@ -43,14 +53,22 @@ h6.ant-typography,
 .ant-form-item-label > label,
 .ant-result-title,
 .ant-page-header-back-button,
-.ant-drawer-title {
+.ant-drawer-title,
+.ant-select-item-option-content {
   color: var(--text-color);
 }
 
 .ant-typography.ant-typography-secondary,
 .ant-picker-suffix,
-.ant-result-subtitle {
-  color: var(--secondary);
+.ant-result-subtitle,
+.ant-input-search
+  > .ant-input-group
+  > .ant-input-group-addon:last-child
+  .ant-input-search-button:not(.ant-btn-primary),
+.ant-select-arrow,
+.ant-empty-small,
+.ant-select-selection-placeholder {
+  color: var(--secondary) !important;
 }
 
 .ant-btn,
@@ -61,7 +79,8 @@ h6.ant-typography,
 .ant-upload-list .ant-upload-list-item:not(.ant-upload-list-item-error),
 .ant-input,
 .ant-input-affix-wrapper,
-.ant-drawer-header {
+.ant-drawer-header,
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
   color: var(--text-color);
   background: transparent;
   border-color: var(--border-color);
@@ -88,7 +107,8 @@ h6.ant-typography,
 .ant-picker-panel-container,
 .ant-picker-panel .ant-picker-footer,
 .ant-popover-inner,
-.ant-radio-button-wrapper {
+.ant-radio-button-wrapper,
+.ant-select-dropdown {
   color: var(--text-color);
   background: var(--background-color);
   border-color: var(--border-color);
@@ -115,7 +135,8 @@ h6.ant-typography,
   background: var(--body-color);
 }
 
-.ant-list-split .ant-list-item {
+.ant-list-split .ant-list-item,
+.ant-select-multiple .ant-select-selection-item {
   border-color: var(--border-color);
 }
 
@@ -131,7 +152,9 @@ h6.ant-typography,
   background: var(--background-color);
 }
 
-.ant-input[disabled] {
+.ant-input[disabled],
+.ant-input-group-addon,
+.ant-select-multiple .ant-select-selection-item {
   color: var(--secondary);
   background: var(--background-color);
 }
@@ -151,4 +174,9 @@ h6.ant-typography,
 .ant-modal-content {
   box-shadow: 0 3px 6px -4px rgb(255 255 255 / 12%),
     0 6px 16px 0 rgb(255 255 255 / 8%), 0 9px 28px 8px rgb(255 255 255 / 5%);
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled),
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background: var(--hover-color);
 }
