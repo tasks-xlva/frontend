@@ -19,6 +19,11 @@ jobs:
           key: node_modules-${{ github.run_id }}
       - name: Install dependencies
         run: yarn install --immutable
+  Codesee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CodeSee Map
+        uses: Codesee-io/codesee-map-action@v1
 
   Build:
     needs: Prepare
